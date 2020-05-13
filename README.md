@@ -43,14 +43,14 @@ Pick the one that most suites the position you wish to apply.
 
 **Omiselabs**
 
-* Backend / Ruby on Rails - [tamboon-rails](https://github.com/omiselabs/challenges/tree/challenge-rails)
-* Foundation / Ruby on Rails - [tamboon-rails](https://github.com/omiselabs/challenges/tree/challenge-rails)
-* Backend / Go - [go-challenge](https://github.com/omiselabs/challenges/tree/challenge-go)
-* Backend / Elixir - [elixir-challenge](https://github.com/boatkorachal/challenges/blob/challenge-elixir/README.md)
-* Devops / Kubernetes [challenge-devops](https://github.com/omiselabs/challenges/tree/challenge-devops)
-* Frontend / React - [tamboon-react](https://github.com/omiselabs/challenges/tree/challenge-react)
-* Mobile App / iOS and Android - [tamboon-mobile](https://github.com/omiselabs/challenges/tree/challenge-mobile)
-* Design / UX - [design-challenge](https://github.com/omiselabs/challenges/blob/challenge-design/design-challenge.pdf)
+* Backend / Ruby on Rails - [tamboon-rails](https://github.com/omiselabs/challenges/tree/master/challenge-rails)
+* Foundation / Ruby on Rails - [tamboon-rails](https://github.com/omiselabs/challenges/tree/master/challenge-rails)
+* Backend / Go - [go-challenge](https://github.com/omiselabs/challenges/tree/master/challenge-go)
+* Backend / Elixir - [elixir-challenge](https://github.com/boatkorachal/challenges/blob/master/challenge-elixir/README.md)
+* Devops / Kubernetes [challenge-devops](https://github.com/omiselabs/challenges/tree/master/challenge-devops)
+* Frontend / React - [tamboon-react](https://github.com/omiselabs/challenges/tree/master/challenge-react)
+* Mobile App / iOS and Android - [tamboon-mobile](https://github.com/omiselabs/challenges/tree/master/challenge-mobile)
+* Design / UX - [design-challenge](https://github.com/omiselabs/challenges/blob/master/challenge-design/design-challenge.pdf)
 
 ### Have fun and we look forward to your submission!
 
