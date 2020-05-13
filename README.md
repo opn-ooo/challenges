@@ -50,7 +50,7 @@ Pick the one that most suites the position you wish to apply.
 * Devops / Kubernetes [challenge-devops](https://github.com/omiselabs/challenges/tree/master/challenge-devops)
 * Frontend / React - [tamboon-react](https://github.com/omiselabs/challenges/tree/master/challenge-react)
 * Mobile App / iOS and Android - [tamboon-mobile](https://github.com/omiselabs/challenges/tree/master/challenge-mobile)
-* Design / UX - [design-challenge](https://github.com/omiselabs/challenges/blob/master/challenge-design/design-challenge.pdf)
+* Design / UX - [design-challenge](https://github.com/omiselabs/challenges/blob/master/design-challenge.pdf)
 
 ### Have fun and we look forward to your submission!
 
