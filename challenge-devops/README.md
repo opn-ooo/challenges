@@ -4,7 +4,6 @@ Ground Rules
 * We prefer well-thought-out solutions over the quick-and-dirty kind. So take your time, if you need it. A rushed job is usually matched by a swift rejection.
 * Submission is done via a [git format-patch](https://git-scm.com/docs/git-format-patch). Send your patch to devops@omiselabs.co 
 
-
 Context
 =======
 We have outsourced this application development to an external company. The application contains the following features:
