@@ -84,6 +84,7 @@ Since this is just a quick test, you do not need to spend time on:
 * Database, persistent storage or any form of caching.
 
 **CAUTIONs**
+
 Your assignment could be rejected if
 * The project does not compile or run.
 * There is little to none unit tests for the main business logic.
