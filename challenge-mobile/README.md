@@ -1,9 +1,10 @@
 # TAMBOON-MOBILE
 
-TamBoon is Thai word for making a merit. The app consists of two parts:
+`TamBoon`(n): Thai word for making merit. 
 
-1. A server-side API.
-2. An iOS or Android application
+The assignment consists of two parts:
+1. A server-side API: this has already been implemented for you
+2. An iOS or Android application: please implement this part
 
 ### SERVER-SIDE API
 
@@ -44,35 +45,15 @@ The server should have 2 endpoints:
      "amount": 10000
    }
    ```
+  The server should then creates a charge using the supplied token against the Omise API.
 
-   The server should then creates a charge using the supplied token against the Omise API.
-
-**DOs**
-
-* Use the Omise API in test mode.
-* (Optional) Use one of the many Omise integration library.
-* Use HTTP status codes to indicate success/failure.
-* Write clean, readable and well-structured code.
-* Version-control with Git and write good commit messages.
-* (Bonus) Write concise and well-targeted tests.
-* (Bonus) Follow good security principles.
-
-**DONTs**
-
-Since this is just a quick test, you do not need to spend time on:
-
-* Database or any persistent storage. Charity list can be hard-coded.
-* Authentication.
-* HTTP Content-Type negotiation.
-* Any form of caching.
-* Deal with any foreign currency exchanges.
 
 ### MOBILE APPLICATION
 
 The application should use the default platform style and should consists of two screens:
 
 1. Charity list screen. - Load list of charities from the `/charities` server-side
-   endpoint and display them using `ListView` (Android) or `UITableView` (iOS). Tapping a
+   endpoint and display them using `RecyclerView` (Android) or `UITableView` (iOS). Tapping a
    charity should bring up the next screen.
 
 2. Charity donation screen. - Shows a credit card number entry form and a field to enter
@@ -84,14 +65,16 @@ The application should use the default platform style and should consists of two
 
 **DOs**
 
+* Git version-control is being used with relevant commit messages.
+* Code/architecture supports scaling and reusability
 * Handles HTTP status codes properly.
-* (Optional) Use one of the Omise-provided Mobile SDKs.
+* Handles API error response gracefully.
 * Write clean, readable and well-structured code.
 * Follow good platform development guidelines where applicable.
-* Version-control with Git and write good commit messages.
-* (Bonus) Handles network failure gracefully.
+* Follow good UI/UX principles.
+* Unit tests
+* (Optional) Use one of the Omise-provided Mobile SDKs.
 * (Bonus) Follow good security principles.
-* (Bonus) Follow good UI/UX principles.
 * (Bonus) UI Tests.
 
 **DONTs**
@@ -99,3 +82,10 @@ The application should use the default platform style and should consists of two
 Since this is just a quick test, you do not need to spend time on:
 
 * Database, persistent storage or any form of caching.
+
+**CAUTIONs**
+Your assignment could be rejected if
+* The project does not compile or run.
+* There is little to none unit tests for the main business logic.
+* Unreasonable amount of external libraries being used.
+* Code are inconsistent, anti-patterns, or shown to be a direct duplication from other sources.
