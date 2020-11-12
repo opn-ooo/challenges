@@ -87,6 +87,7 @@ Since this is just a quick test, you do not need to spend time on:
 
 Your assignment could be rejected if
 * The project does not compile or run.
+* The main functionalities are incomplete or do not work as expected.
 * There is little to none unit tests for the main business logic.
 * Unreasonable amount of external libraries being used.
 * Code are inconsistent, anti-patterns, or shown to be a direct duplication from other sources.
