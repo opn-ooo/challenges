@@ -3,16 +3,13 @@
 `TamBoon`(n): Thai word for making merit. 
 
 The assignment consists of two parts:
-1. A server-side API: this has already been implemented for you
-2. An iOS or Android application: please implement this part
+1. A server-side API: the implementation of this has been completed, all you need to do is to setup and run the server.
+2. An iOS or Android application: please implement this part.
 
 ### SERVER-SIDE API
 
-Two example implementations are availble for you to use:
-
 * A [Go](https://golang.org/) implementation (with a pre-compiled OS X binary) is provided
   inside the `tamboon-server` folder with a `Makefile` for building and running it.
-* A [Swagger API automatic server](https://app.swaggerhub.com/apis/chakritw/tamboon-api/1.0.0)
 
 You will need to obtain an Omise API key in order to start the Go implementation.
 
