@@ -46,12 +46,12 @@ Pick the one that most suites the position you wish to apply.
 
 **Opn**
 
-* Backend / Go - [go-challenge](https://github.com/omiselabs/challenges/tree/master/challenge-go)
-* Backend / Elixir - [elixir-challenge](https://github.com/omiselabs/challenges/tree/master/challenge-elixir)
-* Devops / Kubernetes [challenge-devops](https://github.com/omiselabs/challenges/tree/master/challenge-devops)
-* Frontend / React - [tamboon-react](https://github.com/omiselabs/challenges/tree/master/challenge-react)
-* Mobile App / iOS and Android - [tamboon-mobile](https://github.com/omiselabs/challenges/tree/master/challenge-mobile)
-* Design / UX - [design-challenge](https://github.com/omiselabs/challenges/blob/master/design-challenge.pdf)
+* Backend / Go - [go-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-go)
+* Backend / Elixir - [elixir-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-elixir)
+* Devops / Kubernetes [challenge-devops](https://github.com/opn-ooo/challenges/tree/master/challenge-devops)
+* Frontend / React - [tamboon-react](https://github.com/opn-ooo/challenges/tree/master/challenge-react)
+* Mobile App / iOS and Android - [tamboon-mobile](https://github.com/opn-ooo/challenges/tree/master/challenge-mobile)
+* Design / UX - [design-challenge](https://github.com/opn-ooo/challenges/blob/master/design-challenge.pdf)
 
 ### Have fun and we look forward to your submission!
 
