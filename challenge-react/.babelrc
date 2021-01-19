@@ -1,9 +1,7 @@
 {
-  "presets": [
-    "env",
-    "react"
-  ],
+  "presets": ["@babel/env", "@babel/react"],
   "plugins": [
-    "syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }

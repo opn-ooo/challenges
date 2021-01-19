@@ -3,9 +3,9 @@ const path = require('path');
 const config = {
   entry: './src/index.js',
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: 'build',
+    publicPath: '/dist/',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
   },
 
   devtool: 'inline-source-map',
@@ -30,6 +30,8 @@ const config = {
       },
     ],
   },
+
+  mode: 'development',
 };
 
 module.exports = config;
