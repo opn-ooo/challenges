@@ -8,6 +8,7 @@
   "rules": {
     "quotes": [2, "single"],
     "prefer-const": 2,
+    "indent": ["error", 4],
     "no-const-assign": 2,
     "no-var": 2,
     "no-array-constructor": 1,
