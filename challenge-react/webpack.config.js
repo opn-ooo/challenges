@@ -31,6 +31,12 @@ const config = {
         ],
     },
 
+    resolve: {
+        alias: {
+            '~helpers': path.resolve(__dirname, 'src/helpers/'),
+        },
+    },
+
     mode: 'development',
 };
 

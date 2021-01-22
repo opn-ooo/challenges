@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { summaryDonations } from './helpers/donation'
+import { summaryDonations } from '~helpers/donation'
 
 const Card = styled.div`
   margin: 10px;
