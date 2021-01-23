@@ -81,6 +81,7 @@ module.exports = {
         '^~root(.*)': '<rootDir>/src/$1',
         '^~api(.*)': '<rootDir>/src/api/$1',
         '^~constants(.*)': '<rootDir>/src/constants/$1',
+        '^~containers(.*)': '<rootDir>/src/containers/$1',
         '^~components(.*)': '<rootDir>/src/components/$1',
         '^~helpers(.*)': '<rootDir>/src/helpers/$1',
         '^~hooks(.*)': '<rootDir>/src/hooks/$1',

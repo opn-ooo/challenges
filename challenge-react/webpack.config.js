@@ -50,6 +50,7 @@ module.exports = {
             '~root': path.resolve(__dirname, 'src/'),
             '~api': path.resolve(__dirname, 'src/api/'),
             '~constants': path.resolve(__dirname, 'src/constants/'),
+            '~containers': path.resolve(__dirname, 'src/containers/'),
             '~components': path.resolve(__dirname, 'src/components/'),
             '~helpers': path.resolve(__dirname, 'src/helpers/'),
             '~hooks': path.resolve(__dirname, 'src/hooks/'),

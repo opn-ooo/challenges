@@ -5,11 +5,10 @@ import styled from 'styled-components'
 import CHARITY from '~constants/charity'
 
 const Card = styled.div`
-    margin: 10px;
     border: 1px solid #ccc;
 `
 
-function CharityCard({ name, disabled, onSubmit }) {
+function CharityCard({ name, image, disabled, onSubmit }) {
     const [selectedAmount, setSelectedAmount] = useState(null)
 
     const payments = CHARITY.paymentOptions.map((value) => (
@@ -26,6 +25,7 @@ function CharityCard({ name, disabled, onSubmit }) {
     return (
         <Card>
             <p>{name}</p>
+            <img src={image} alt={name} width="300"/>
             {payments}
             <button
                 onClick={() => onSubmit(selectedAmount)}
@@ -44,6 +44,7 @@ CharityCard.defaultProps = {
 CharityCard.propTypes = {
     name: PropTypes.string.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    image: PropTypes.string,
     loading: PropTypes.bool,
     disabled: PropTypes.bool,
 }

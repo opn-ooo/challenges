@@ -11,7 +11,9 @@ export default createGlobalStyle(({theme}) => `
     }
 
     body {
+        font-size: 16px;
         color: ${theme.colors.textColor};
         background-color: ${theme.colors.backgroundColor};
+        overflow-x: hidden;
     }
 `)
