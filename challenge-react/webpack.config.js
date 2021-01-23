@@ -1,6 +1,6 @@
-const path = require('path');
+const path = require('path')
 
-const config = {
+module.exports = {
     entry: './src/index.js',
     output: {
         publicPath: '/dist/',
@@ -8,6 +8,7 @@ const config = {
         filename: 'main.js',
     },
 
+    mode: 'development',
     devtool: 'inline-source-map',
 
     devServer: {
@@ -33,11 +34,8 @@ const config = {
 
     resolve: {
         alias: {
+            '~api': path.resolve(__dirname, 'src/api/'),
             '~helpers': path.resolve(__dirname, 'src/helpers/'),
         },
     },
-
-    mode: 'development',
-};
-
-module.exports = config;
+}

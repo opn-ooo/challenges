@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import fetch from 'isomorphic-fetch';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
 
+import paymentAPI from '~api/payment'
+import charityAPI from '~api/charity'
 import { summaryDonations } from '~helpers/donation'
 
 const Card = styled.div`
   margin: 10px;
   border: 1px solid #ccc;
-`;
+`
 
 export default connect((state) => state)(
     class App extends Component {
@@ -18,29 +19,23 @@ export default connect((state) => state)(
     };
 
     componentDidMount() {
-        const self = this;
-        fetch('http://localhost:3001/charities')
-            .then(function (resp) {
-                return resp.json();
-            })
+        const self = this
+        charityAPI.getAll()
             .then(function (data) {
-                self.setState({ charities: data });
-            });
-
-        fetch('http://localhost:3001/payments')
-            .then(function (resp) {
-                return resp.json();
+                self.setState({ charities: data })
             })
+
+        paymentAPI.getAll()
             .then(function (data) {
                 self.props.dispatch({
                     type: 'UPDATE_TOTAL_DONATE',
                     amount: summaryDonations(data.map((item) => item.amount)),
-                });
-            });
+                })
+            })
     }
 
     render() {
-        const self = this;
+        const self = this
         const cards = this.state.charities.map(function (item, i) {
             const payments = [10, 20, 50, 100, 500].map((amount, j) => (
                 <label key={j}>
@@ -48,12 +43,12 @@ export default connect((state) => state)(
                         type="radio"
                         name="payment"
                         onClick={function () {
-                            self.setState({ selectedAmount: amount });
+                            self.setState({ selectedAmount: amount })
                         }}
                     />
                     {amount}
                 </label>
-            ));
+            ))
 
             return (
                 <Card key={i}>
@@ -70,8 +65,8 @@ export default connect((state) => state)(
               Pay
                     </button>
                 </Card>
-            );
-        });
+            )
+        })
 
         const style = {
             color: 'red',
@@ -79,10 +74,10 @@ export default connect((state) => state)(
             fontWeight: 'bold',
             fontSize: '16px',
             textAlign: 'center',
-        };
+        }
 
-        const donate = this.props.donate;
-        const message = this.props.message;
+        const donate = this.props.donate
+        const message = this.props.message
 
         return (
             <div>
@@ -91,10 +86,10 @@ export default connect((state) => state)(
                 <p style={style}>{message}</p>
                 {cards}
             </div>
-        );
+        )
     }
     }
-);
+)
 
 /**
  * Handle pay button
