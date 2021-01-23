@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { donationAmountSelector, donationMessageSelector } from '~modules/donation/donationSelector'
-import { donationAction } from '~modules/donation/donationSlice'
+import donationAction from '~modules/donation/donationAction'
 
 function useDonation() {
     const dispatch = useDispatch()
@@ -9,15 +9,20 @@ function useDonation() {
     const donationAmount = useSelector(donationAmountSelector)
     const donationMessage = useSelector(donationMessageSelector)
 
-    function addAmount(amount) {
-        dispatch(donationAction.addAmount(amount))
+    function submitPayment(data) {
+        dispatch(donationAction.submitPayment(data))
+    }
+
+    function fetchPayment() {
+        dispatch(donationAction.fetchPayment())
     }
 
     return {
         donationAmount,
         donationMessage,
 
-        addAmount,
+        fetchPayment,
+        submitPayment,
     }
 }
 

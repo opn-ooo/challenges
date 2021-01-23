@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import paymentAPI from '~api/payment'
-import charityAPI from '~api/charity'
 import useDonation from '~hooks/useDonation'
-import { summaryDonations } from '~helpers/donation'
+import useCharity from '~hooks/useCharity'
 
 const Card = styled.div`
   margin: 10px;
@@ -12,20 +10,14 @@ const Card = styled.div`
 `
 
 function App() {
-    const [charities, setCharities] = useState([])
     const [selectedAmount, setSelectedAmount] = useState([])
 
-    const { addAmount, donationAmount, donationMessage } = useDonation()
+    const { charities, fetchCharities } = useCharity()
+    const { submitPayment, fetchPayment, donationAmount, donationMessage } = useDonation()
 
     useEffect(() => {
-        charityAPI.getAll()
-            .then(data => setCharities(data))
-
-        paymentAPI.getAll()
-            .then(data => {
-                const totalAmount = summaryDonations(data.map((item) => item.amount))
-                addAmount(totalAmount)
-            })
+        fetchCharities()
+        fetchPayment()
     }, [])
 
     const cards = charities.map(function (item, i) {
@@ -44,10 +36,8 @@ function App() {
             <Card key={i}>
                 <p>{item.name}</p>
                 {payments}
-                <button
-                    onClick={handlePay.call(self, item.id, selectedAmount, item.currency)}
-                >
-              Pay
+                <button onClick={() => submitPayment({ id: item.id, amount: selectedAmount, currency: item.currency })}>
+                    Pay
                 </button>
             </Card>
         )
@@ -71,18 +61,3 @@ function App() {
 }
 
 export default App
-
-/**
- * Handle pay button
- * 
- * @param {*} The charities Id
- * @param {*} amount The amount was selected
- * @param {*} currency The currency
- * 
- * @example
- * fetch('http://localhost:3001/payments', {
-      method: 'POST',
-      body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
-    })
- */
-function handlePay(id, amount, currency) {}
