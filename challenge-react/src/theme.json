@@ -1,0 +1,16 @@
+{
+    "mode": {
+        "dark": {
+            "colors": {
+                "textColor": "#fff",
+                "backgroundColor": "#333333"
+            }
+        },
+        "light": {
+            "colors": {
+                "textColor": "#04070D",
+                "backgroundColor": "#fff"
+            }
+        }
+    }
+}
