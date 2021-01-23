@@ -1,10 +1,10 @@
 const webpack = require('webpack')
 const path = require('path')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv-flow')
 const dotenvExpand = require('dotenv-expand')
 
 const env = dotenv.config({
-    path: path.resolve(process.cwd(), 'config/.env'),
+    path: path.resolve(process.cwd(), 'config'),
 })
 const config = dotenvExpand(env).parsed
 
