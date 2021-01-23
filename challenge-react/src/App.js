@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
 
 import paymentAPI from '~api/payment'
 import charityAPI from '~api/charity'
+import useDonation from '~hooks/useDonation'
 import { summaryDonations } from '~helpers/donation'
 
 const Card = styled.div`
@@ -11,85 +11,66 @@ const Card = styled.div`
   border: 1px solid #ccc;
 `
 
-export default connect((state) => state)(
-    class App extends Component {
-    state = {
-        charities: [],
-        selectedAmount: 10,
-    };
+function App() {
+    const [charities, setCharities] = useState([])
+    const [selectedAmount, setSelectedAmount] = useState([])
 
-    componentDidMount() {
-        const self = this
+    const { addAmount, donationAmount, donationMessage } = useDonation()
+
+    useEffect(() => {
         charityAPI.getAll()
-            .then(function (data) {
-                self.setState({ charities: data })
-            })
+            .then(data => setCharities(data))
 
         paymentAPI.getAll()
-            .then(function (data) {
-                self.props.dispatch({
-                    type: 'UPDATE_TOTAL_DONATE',
-                    amount: summaryDonations(data.map((item) => item.amount)),
-                })
+            .then(data => {
+                const totalAmount = summaryDonations(data.map((item) => item.amount))
+                addAmount(totalAmount)
             })
-    }
+    }, [])
 
-    render() {
-        const self = this
-        const cards = this.state.charities.map(function (item, i) {
-            const payments = [10, 20, 50, 100, 500].map((amount, j) => (
-                <label key={j}>
-                    <input
-                        type="radio"
-                        name="payment"
-                        onClick={function () {
-                            self.setState({ selectedAmount: amount })
-                        }}
-                    />
-                    {amount}
-                </label>
-            ))
-
-            return (
-                <Card key={i}>
-                    <p>{item.name}</p>
-                    {payments}
-                    <button
-                        onClick={handlePay.call(
-                            self,
-                            item.id,
-                            self.state.selectedAmount,
-                            item.currency
-                        )}
-                    >
-              Pay
-                    </button>
-                </Card>
-            )
-        })
-
-        const style = {
-            color: 'red',
-            margin: '1em 0',
-            fontWeight: 'bold',
-            fontSize: '16px',
-            textAlign: 'center',
-        }
-
-        const donate = this.props.donate
-        const message = this.props.message
+    const cards = charities.map(function (item, i) {
+        const payments = [10, 20, 50, 100, 500].map((amount, j) => (
+            <label key={j}>
+                <input
+                    type="radio"
+                    name="payment"
+                    onClick={() => setSelectedAmount(amount)}
+                />
+                {amount}
+            </label>
+        ))
 
         return (
-            <div>
-                <h1>Tamboon React</h1>
-                <p>All donations: {donate}</p>
-                <p style={style}>{message}</p>
-                {cards}
-            </div>
+            <Card key={i}>
+                <p>{item.name}</p>
+                {payments}
+                <button
+                    onClick={handlePay.call(self, item.id, selectedAmount, item.currency)}
+                >
+              Pay
+                </button>
+            </Card>
         )
+    })
+    const style = {
+        color: 'red',
+        margin: '1em 0',
+        fontWeight: 'bold',
+        fontSize: '16px',
+        textAlign: 'center',
     }
-    }
-)
+
+    return (
+        <div>
+            <h1>Tamboon React</h1>
+            <p>All donations: {donationAmount}</p>
+            <p style={style}>{donationMessage}</p>
+            {cards}
+        </div>
+    )
+}
+
+export default App
 
 /**
  * Handle pay button

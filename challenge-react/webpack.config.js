@@ -21,7 +21,7 @@ module.exports = {
         filename: 'main.js',
     },
 
-    mode: 'development',
+    mode: process.env.NODE_ENV || 'production',
     devtool: 'inline-source-map',
 
     devServer: {
@@ -49,6 +49,8 @@ module.exports = {
         alias: {
             '~api': path.resolve(__dirname, 'src/api/'),
             '~helpers': path.resolve(__dirname, 'src/helpers/'),
+            '~hooks': path.resolve(__dirname, 'src/hooks/'),
+            '~modules': path.resolve(__dirname, 'src/modules/'),
         },
     },
 
