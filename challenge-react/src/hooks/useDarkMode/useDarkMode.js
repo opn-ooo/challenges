@@ -1,5 +1,7 @@
 // References: https://usehooks.com/useDarkMode/
 
+import { useEffect, useCallback } from 'react'
+
 import useLocalStorage from '~hooks/useLocalStorage'
 import useMedia from '~hooks/useMedia'
 
@@ -20,8 +22,23 @@ function useDarkMode() {
     // This allows user to override OS level setting on our website.
     const enabled = typeof enabledState !== 'undefined' ? enabledState : prefersDarkMode
 
+    useEffect(
+        () => {
+            const className = 'dark-mode'
+            const element = window.document.body
+            if (enabled) {
+                element.classList.add(className)
+            } else {
+                element.classList.remove(className)
+            }
+        },
+        [enabled] // Only re-call effect when value changes
+    )
+
+    const toggle = useCallback(() => setEnabledState(!enabled), [enabled])
+
     // Return enabled state and setter
-    return [enabled, setEnabledState]
+    return [enabled, toggle]
 }
 
 export default useDarkMode

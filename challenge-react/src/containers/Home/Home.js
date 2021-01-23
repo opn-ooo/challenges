@@ -30,7 +30,7 @@ function Home() {
             </Text>
             <Box display="flex" flexWrap="wrap">
                 {charities.map(value => (
-                    <Box p="10px" width={[1, null, 0.5, 0.25]} key={value.id}>
+                    <Box width={[1, null, 0.5, 0.25]} key={value.id}>
                         <CharityCard
                             name={value.name}
                             image={value.image}

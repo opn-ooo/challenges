@@ -8,6 +8,7 @@ function Container({ children, ...restProps }) {
         <Box
             width="100%"
             mx="auto"
+            px="15px"
             maxWidth={['100%', '540px', '720px', '960px', '1140px', '1320px']}
             {...restProps}>
             {children}

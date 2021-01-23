@@ -1,17 +1,8 @@
 {
     "breakpoints": ["576px", "768px", "992px", "1200px", "1400px"],
-    "mode": {
-        "dark": {
-            "colors": {
-                "textColor": "#fff",
-                "backgroundColor": "#333333"
-            }
-        },
-        "light": {
-            "colors": {
-                "textColor": "#04070D",
-                "backgroundColor": "#fff"
-            }
-        }
+    "colors": {
+        "textColor": "var(--text-color)",
+        "backgroundColor": "var(--background-color)",
+        "borderColor": "var(--border-color)"
     }
 }

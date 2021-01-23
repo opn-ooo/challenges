@@ -16,4 +16,16 @@ export default createGlobalStyle(({theme}) => `
         background-color: ${theme.colors.backgroundColor};
         overflow-x: hidden;
     }
+
+    :root {
+        --background-color: #fff;
+        --border-color: #04070D;
+        --text-color: #04070D;
+    }
+
+    .dark-mode {
+        --background-color: #333;
+        --border-color: #333;
+        --text-color: #fff;
+    }
 `)
