@@ -11,3 +11,8 @@ export const charitiesSelector = createSelector(
     charityDataSelector,
     data => data.charities
 )
+
+export const charityStatusSelector = createSelector(
+    charitySelector,
+    state => state.status
+)
