@@ -8,20 +8,22 @@ import Text from '~components/Text'
 
 function Header() {
     return (
-        <header>
+        <header className="header">
             <Container>
-                <Box display="flex">
+                <Box display="flex" minHeight="72px" alignItems="center">
                     <Box
                         width={[null, null, null, 1/3]}
                         display={['none', null, null, 'block']}/>
-                    <Text
-                        as="h2"
-                        width={[0.5, null, null, 1/3]}
-                        textAlign={[null, null, null, 'center']}>
-                        <Link to="/">
-                            Tamboon React
-                        </Link>
-                    </Text>
+                    <Box width={[0.5, null, null, 1/3]}>
+                        <Text
+                            as="h2"
+                            m="0"
+                            textAlign={[null, null, null, 'center']}>
+                            <Link to="/">
+                                Tamboon React
+                            </Link>
+                        </Text>
+                    </Box>
                     <Box
                         width={[0.5, null, null, 1/3]}
                         display="flex"

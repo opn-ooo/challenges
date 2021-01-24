@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import { variant } from 'styled-system'
+import { variant, space } from 'styled-system'
 
 export default styled.button`
     cursor: pointer;
     color: inherit;
     padding: 0.5em 1em;
 
+    ${space}
     ${variant({
         variants: {
             primary: {

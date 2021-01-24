@@ -11,9 +11,10 @@ function ToggleDarkMode() {
 
     return (
         <Button
+            p="0"
             variant="transparent"
             onClick={() => toggle()}>
-            <Icon width="24px" color="inherit"/>
+            <Icon width="27px" color="inherit"/>
         </Button>
     )
 }

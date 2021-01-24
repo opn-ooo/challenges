@@ -4,6 +4,10 @@ import { normalize } from 'styled-normalize'
 export default createGlobalStyle(({theme}) => `
     ${normalize}
 
+    * {
+        box-sizing: border-box;
+    }
+
     html,
     body {
         width: 100%;
