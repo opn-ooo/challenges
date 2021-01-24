@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { donationTotalAmountSelector, donationActiveCurrencySelector, donationMessageSelector } from '~modules/donation/donationSelector'
+import { donationTotalAmountSelector, donationActiveCurrencySelector, donationErrorMessageSelector } from '~modules/donation/donationSelector'
 import donationAction from '~modules/donation/donationAction'
 
 function useDonation() {
@@ -10,7 +10,7 @@ function useDonation() {
 
     const totalAmount = useSelector(donationTotalAmountSelector)
     const activeCurrency = useSelector(donationActiveCurrencySelector)
-    const donationMessage = useSelector(donationMessageSelector)
+    const errorMessage = useSelector(donationErrorMessageSelector)
 
     const donationAmount = useMemo(() => totalAmount[activeCurrency] || 0, [totalAmount, activeCurrency])
 
@@ -32,7 +32,7 @@ function useDonation() {
     return {
         donationAmount,
         activeCurrency,
-        donationMessage,
+        errorMessage,
 
         fetchPayment,
 
