@@ -1,43 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { MODULE_NAME } from '~constants/redux'
-import { setMessage, fetchPayment, submitPayment } from './donationAction'
+import CHARITY from '~constants/charity'
+import { isPendingAction, isFulFilledAction, isRejectedAction } from '~helpers/redux'
+import { fetchPayment, submitPayment } from './donationAction'
 
 const donationSlice = createSlice({
     name: MODULE_NAME.donation,
     initialState: {
         data: {
-            amount: 0,
-            message: null,
+            activeCurrency: CHARITY.activeCurrency,
+            totalAmount: {},
+            errorMessage: null,
         },
         status: 'idle',
     },
-    extraReducers: {
-        [setMessage]: (state, action) => {
-            state.data.message = action.payload
-        },
-
-        [fetchPayment.pending]: (state) => {
-            state.status = 'loading'
-        },
-        [fetchPayment.fulfilled]: (state, action) => {
-            state.data.amount = action.payload
-            state.status = 'success'
-        },
-        [fetchPayment.rejected]: (state) => {
-            state.status = 'failure'
-        },
-
-        [submitPayment.pending]: (state) => {
-            state.status = 'loading'
-        },
-        [submitPayment.fulfilled]: (state, action) => {
-            state.data.amount = state.data.amount + action.payload
-            state.status = 'success'
-        },
-        [submitPayment.rejected]: (state) => {
-            state.status = 'failure'
-        },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchPayment.fulfilled, (state, action) => {
+                state.data.totalAmount = action.payload
+            })
+            .addCase(submitPayment.fulfilled, (state, action) => {
+                state.data.amount = state.data.amount + action.payload
+            })
+            .addMatcher(isPendingAction(MODULE_NAME.donation), (state) => {
+                state.status = 'loading'
+                state.data.errorMessage = null
+            })
+            .addMatcher(isFulFilledAction(MODULE_NAME.donation), (state) => {
+                state.status = 'success'
+            })
+            .addMatcher(isRejectedAction(MODULE_NAME.donation), (state, action) => {
+                console.log(action)
+                state.data.errorMessage = 'test'
+                state.status = 'failure'
+            })
     },
 })
 

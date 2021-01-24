@@ -7,12 +7,17 @@ export const donationDataSelector = createSelector(
     state => state.data
 )
 
-export const donationAmountSelector = createSelector(
+export const donationTotalAmountSelector = createSelector(
     donationDataSelector,
-    data => data.amount
-)
+    data => data.totalAmount
+) 
 
-export const donationMessageSelector = createSelector(
+export const donationActiveCurrencySelector = createSelector(
     donationDataSelector,
-    data => data.message
+    data => data.activeCurrency
+) 
+
+export const donationErrorMessageSelector = createSelector(
+    donationDataSelector,
+    data => data.errorMessage
 )

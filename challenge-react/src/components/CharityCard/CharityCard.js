@@ -18,8 +18,8 @@ function CharityCard({ name, image, currency, disabled, onSubmit }) {
         label: `${value} ${currency}`,
     }))
 
-    const handleSubmit = useCallback(() => {
-        onSubmit(selectedAmount.value)
+    const handleSubmit = useCallback(async () => {
+        await onSubmit(selectedAmount.value)
         setSelectedAmount(DEFAULT_STATE.selectedAmount)
     }, [selectedAmount])
     const isDisabled = useMemo(() => !selectedAmount || disabled, [selectedAmount, disabled])

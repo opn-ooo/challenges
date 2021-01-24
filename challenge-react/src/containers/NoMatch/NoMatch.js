@@ -4,7 +4,7 @@ import Container from '~components/Container'
 function NoMatch() {
     return (
         <Container>
-            <h1>oops!</h1>
+            <h1>Oops!</h1>
         </Container>
     )
 }

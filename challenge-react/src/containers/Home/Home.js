@@ -3,14 +3,13 @@ import React, { useEffect } from 'react'
 
 import CharityCard, { CharityCardLoader } from '~components/CharityCard'
 import Container from '~components/Container'
-import Text from '~components/Text'
 import Box from '~components/Box'
 import useDonation from '~hooks/useDonation'
 import useCharity from '~hooks/useCharity'
 
 function Home() {
     const { charities, fetchCharities, status } = useCharity()
-    const { submitPayment, fetchPayment, donationAmount, donationMessage } = useDonation()
+    const { submittingPayment, submitPayment, fetchPayment } = useDonation()
 
     useEffect(() => {
         fetchCharities()
@@ -19,17 +18,6 @@ function Home() {
 
     return (
         <Container className="home">
-            <Text>
-                Donations: {donationAmount.toLocaleString()}
-            </Text>
-            <Text
-                textAlign="center"
-                mx="1em"
-                my="0"
-                fontWeight="bold"
-                fontSize="16px">
-                {donationMessage}
-            </Text>
             <Box display="flex" flexWrap="wrap" mx="-15px">
                 {status !== 'success' && (
                     <Box
@@ -49,6 +37,7 @@ function Home() {
                             currency={value.currency}
                             name={value.name}
                             image={value.image}
+                            disabled={submittingPayment}
                             onSubmit={amount => submitPayment({ amount, id: value.id, currency: value.currency })} />
                     </Box>
                 ))}

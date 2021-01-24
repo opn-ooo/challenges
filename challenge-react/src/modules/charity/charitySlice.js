@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { MODULE_NAME } from '~constants/redux'
+import { isPendingAction, isFulFilledAction, isRejectedAction } from '~helpers/redux'
 import { fetchCharities } from './charityAction'
 
 const charitySlice = createSlice({
@@ -11,17 +12,20 @@ const charitySlice = createSlice({
         },
         status: 'idle',
     },
-    extraReducers: {
-        [fetchCharities.pending]: (state) => {
-            state.status = 'loading'
-        },
-        [fetchCharities.fulfilled]: (state, action) => {
-            state.data.charities = action.payload
-            state.status = 'success'
-        },
-        [fetchCharities.rejected]: (state) => {
-            state.status = 'failure'
-        },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchCharities.fulfilled, (state, action) => {
+                state.data.charities = action.payload
+            })
+            .addMatcher(isPendingAction(MODULE_NAME.charity), (state) => {
+                state.status = 'loading'
+            })
+            .addMatcher(isFulFilledAction(MODULE_NAME.charity), (state) => {
+                state.status = 'success'
+            })
+            .addMatcher(isRejectedAction(MODULE_NAME.charity), (state) => {
+                state.status = 'failure'
+            })
     },
 })
 
