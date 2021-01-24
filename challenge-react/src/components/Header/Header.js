@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Container from '~components/Container'
 import ToggleDarkMode from '~components/ToggleDarkMode'
@@ -17,7 +18,9 @@ function Header() {
                         as="h2"
                         width={[0.5, null, null, 1/3]}
                         textAlign={[null, null, null, 'center']}>
-                        Tamboon React
+                        <Link to="/">
+                            Tamboon React
+                        </Link>
                     </Text>
                     <Box
                         width={[0.5, null, null, 1/3]}

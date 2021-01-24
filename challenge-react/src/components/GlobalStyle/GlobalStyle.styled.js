@@ -17,6 +17,11 @@ export default createGlobalStyle(({theme}) => `
         overflow-x: hidden;
     }
 
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
     :root {
         --background-color: #fff;
         --border-color: #04070D;

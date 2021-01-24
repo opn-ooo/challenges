@@ -1,8 +1,11 @@
 import React from 'react'
+import Container from '~components/Container'
 
 function NoMatch() {
     return (
-        <h1>oops!</h1>
+        <Container>
+            <h1>oops!</h1>
+        </Container>
     )
 }
 
