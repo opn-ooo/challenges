@@ -8,6 +8,7 @@ export default createGlobalStyle(({theme}) => `
     body {
         width: 100%;
         height: 100%;
+        font-family: ${theme.font.family};
     }
 
     body {
@@ -15,6 +16,7 @@ export default createGlobalStyle(({theme}) => `
         color: ${theme.colors.textColor};
         background-color: ${theme.colors.backgroundColor};
         overflow-x: hidden;
+        transition: all .2s;
     }
 
     a {

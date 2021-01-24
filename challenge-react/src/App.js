@@ -4,8 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from '~containers/Home'
 import NoMatch from '~containers/NoMatch'
-import GlobalStyle from '~components/GlobalStyle'
-import Header from '~components/Header'
+import Layout from '~components/Layout'
 import useTheme from '~hooks/useTheme'
 
 function App() {
@@ -13,18 +12,16 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <GlobalStyle/>
-            <Header/>
-            <main>
+            <Layout>
                 <Switch>
                     <Route exact path="/">
-                        <Home/>
+                        <Home />
                     </Route>
                     <Route path="*">
-                        <NoMatch/>
+                        <NoMatch />
                     </Route>
                 </Switch>
-            </main>
+            </Layout>
         </ThemeProvider>
     )
 }
