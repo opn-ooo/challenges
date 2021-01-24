@@ -28,13 +28,18 @@ function Home() {
                 fontSize="16px">
                 {donationMessage}
             </Text>
-            <Box display="flex" flexWrap="wrap">
+            <Box display="flex" flexWrap="wrap" mx="-15px">
                 {charities.map(value => (
-                    <Box width={[1, null, 0.5, 0.25]} key={value.id}>
+                    <Box
+                        width={[1, null, 0.5, null, 1/3]}
+                        px="15px"
+                        py="10px"
+                        key={value.id}>
                         <CharityCard
+                            currency={value.currency}
                             name={value.name}
                             image={value.image}
-                            onSubmit={amount => submitPayment({ amount, id: item.id, currency: item.currency })} />
+                            onSubmit={amount => submitPayment({ amount, id: value.id, currency: value.currency })} />
                     </Box>
                 ))}
             </Box>

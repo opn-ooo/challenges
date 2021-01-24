@@ -29,14 +29,20 @@ export default createGlobalStyle(({theme}) => `
     }
 
     :root {
-        --background-color: #fff;
+        --background-color: #f2f6f9;
+        --foreground-color: #fafafa;
         --border-color: #04070D;
         --text-color: #04070D;
+        --cta-color: #33a8e8;
+        --cta-text-color: #fff;
     }
 
     .dark-mode {
         --background-color: #333;
-        --border-color: #333;
+        --foreground-color: #48484a;
+        --border-color: #fff;
         --text-color: #fff;
+        --cta-color: #448cff;
+        --cta-text-color: #fff;
     }
 `)

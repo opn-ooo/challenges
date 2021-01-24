@@ -1,27 +1,34 @@
 import styled from 'styled-components'
-import { variant, space } from 'styled-system'
+import { compose, variant, space, layout } from 'styled-system'
 
 export default styled.button`
     cursor: pointer;
     color: inherit;
     padding: 0.5em 1em;
+    transition: all .3s;
+    border: none;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 
-    ${space}
+    ${compose(space, layout)}
     ${variant({
         variants: {
             primary: {
-                color: 'var(--border-color)',
-                bg: 'transparent',
-                borderWidth: '1px',
+                minHeight: '38px',
+                color: 'var(--cta-text-color)',
+                bg: 'var(--cta-color)',
+                borderRadius: '4px',
                 '&:hover': {
-                    bg: 'var(--border-color)',
-                    color: 'var(--background-color)',
+                    opacity: 0.7,
+                },
+                '&:disabled': {
+                    opacity: 0.4,
+                    cursor: 'not-allowed',
                 },
             },
             transparent: {
                 color: 'inherit',
                 bg: 'transparent',
-                border: 'none',
             },
         },
     })}
