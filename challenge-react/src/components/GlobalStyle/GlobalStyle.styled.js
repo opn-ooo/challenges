@@ -28,6 +28,11 @@ export default createGlobalStyle(({theme}) => `
         text-decoration: none;
     }
 
+    .ct-toast {
+        color: ${theme.colors.textColor};
+        background-color:  ${theme.colors.foregroundColor};
+    }
+
     :root {
         --background-color: #f2f6f9;
         --foreground-color: #fafafa;

@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react'
+import cogoToast from 'cogo-toast'
 
 import CharityCard, { CharityCardLoader } from '~components/CharityCard'
 import Container from '~components/Container'
@@ -9,12 +10,18 @@ import useCharity from '~hooks/useCharity'
 
 function Home() {
     const { charities, fetchCharities, status } = useCharity()
-    const { submittingPayment, submitPayment, fetchPayment } = useDonation()
+    const { errorMessage, submittingPayment, submitPayment, fetchPayment } = useDonation()
 
     useEffect(() => {
         fetchCharities()
         fetchPayment()
     }, [])
+
+    useEffect(() => {
+        if (errorMessage) {
+            cogoToast.error(errorMessage)
+        }
+    }, [errorMessage])
 
     return (
         <Container className="home">

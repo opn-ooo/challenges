@@ -31,9 +31,8 @@ const donationSlice = createSlice({
                 state.status = 'success'
             })
             .addMatcher(isRejectedAction(MODULE_NAME.donation), (state, action) => {
-                console.log(action)
-                state.data.errorMessage = 'test'
                 state.status = 'failure'
+                state.data.errorMessage = action.error.message
             })
     },
 })

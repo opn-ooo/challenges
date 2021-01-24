@@ -1,19 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import { AttachMoney } from '@styled-icons/material'
+import classNames from 'classnames'
 
 import Container from '~components/Container'
 import ToggleDarkMode from '~components/ToggleDarkMode'
 import Box from '~components/Box'
 import Text from '~components/Text'
 import useDonation from '~hooks/useDonation'
+import { DonationAmount } from './Header.styled'
 
 function Header() {
     const { donationAmount, activeCurrency } = useDonation()
+    const [animation, setAnimation] = useState(false)
     const match = useRouteMatch({
         path: '/',
         exact: true,
     })
+
+    useEffect(() => {
+        if (donationAmount > 0) {
+            setAnimation(true)
+        }
+
+        const removeAnimationTask = setTimeout(() => setAnimation(false), 800)
+
+        return () => {
+            clearTimeout(removeAnimationTask)
+        }
+    }, [donationAmount])
 
     return (
         <Container as="header" className="header">
@@ -39,12 +54,15 @@ function Header() {
                     {match && (
                         <>
                             <AttachMoney width="27px" />
-                            <Text
+                            <DonationAmount
+                                className={classNames({
+                                    animation,
+                                })}
                                 mr="1rem"
                                 fontSize="1.375rem"
                                 title="Total donations">
                                 {`${donationAmount.toLocaleString()} ${activeCurrency}`}
-                            </Text>
+                            </DonationAmount>
                         </>
                     )}
                     <ToggleDarkMode/>
