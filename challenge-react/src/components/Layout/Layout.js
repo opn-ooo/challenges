@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import GlobalStyle from '~components/GlobalStyle'
 import Header from '~components/Header'
+import Box from '~components/Box'
 
 function Layout({ children }) {
     return (
@@ -14,9 +15,9 @@ function Layout({ children }) {
             </Helmet>
             <GlobalStyle />
             <Header />
-            <main>
+            <Box as="main" pt="72px">
                 {children}
-            </main>
+            </Box>
         </>
     )
 }

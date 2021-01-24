@@ -31,7 +31,16 @@ function Header() {
     }, [donationAmount])
 
     return (
-        <Container as="header" className="header">
+        <Container
+            as="header"
+            className="header"
+            position="fixed"
+            width="100%"
+            bg="backgroundColor"
+            zIndex="5"
+            top="0"
+            left="0"
+            right="0">
             <Box display="flex" minHeight="72px" alignItems="center">
                 <Box
                     width={[null, null, null, 1/3]}
