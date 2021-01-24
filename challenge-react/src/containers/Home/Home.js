@@ -16,7 +16,6 @@ function Home() {
         fetchCharities()
         fetchPayment()
     }, [])
-    console.log(status)
 
     return (
         <Container className="home">
