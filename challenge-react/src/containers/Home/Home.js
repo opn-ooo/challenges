@@ -33,20 +33,12 @@ function Home() {
             </Text>
             <Box display="flex" flexWrap="wrap" mx="-15px">
                 {status !== 'success' && (
-                    <>
-                        <Box
-                            width={[1, null, 0.5, null, 1/3]}
-                            px="15px"
-                            py="10px">
-                            <CharityCardLoader />
-                        </Box>
-                        <Box
-                            width={[1, null, 0.5, null, 1/3]}
-                            px="15px"
-                            py="10px">
-                            <CharityCardLoader />
-                        </Box>
-                    </>
+                    <Box
+                        width={[1, null, 0.5, null, 1/3]}
+                        px="15px"
+                        py="10px">
+                        <CharityCardLoader />
+                    </Box>
                 )}
                 {charities.map(value => (
                     <Box
