@@ -2,6 +2,7 @@ import React from 'react'
 
 import { DarkMode, LightMode } from '@styled-icons/material'
 
+import Button from '~components/Button'
 import useDarkMode from '~hooks/useDarkMode'
 
 function ToggleDarkMode() {
@@ -9,9 +10,11 @@ function ToggleDarkMode() {
     const Icon = darkMode ? DarkMode : LightMode
 
     return (
-        <button onClick={() => toggle()} style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
-            <Icon width="24px" color="var(--text-color)"/>
-        </button>
+        <Button
+            variant="transparent"
+            onClick={() => toggle()}>
+            <Icon width="24px" color="inherit"/>
+        </Button>
     )
 }
 
