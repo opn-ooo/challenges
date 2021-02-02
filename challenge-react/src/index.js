@@ -10,6 +10,7 @@ const store = createStore(function (state, action) {
       ? {
           donate: 0,
           message: '',
+          status: '',
         }
       : state;
 
@@ -21,6 +22,7 @@ const store = createStore(function (state, action) {
     case 'UPDATE_MESSAGE':
       return Object.assign({}, _state, {
         message: action.message,
+        status: action.status,
       });
 
     default:
