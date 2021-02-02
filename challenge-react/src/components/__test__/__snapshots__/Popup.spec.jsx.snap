@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button render correctly visible false 1`] = `
+<div
+  className="sc-gsTCUz gnBEhQ"
+>
+  <div
+    className="sc-dlfnbm LtJEX"
+  >
+    <h2>
+      test
+    </h2>
+    <button
+      className="sc-bdfBwQ eCLJup"
+      id="close-popup-btn"
+      onClick={[MockFunction]}
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button render correctly visible true 1`] = `
+<div
+  className="sc-gsTCUz jXWlsB"
+>
+  <div
+    className="sc-dlfnbm LtJEX"
+  >
+    <h2>
+      test
+    </h2>
+    <button
+      className="sc-bdfBwQ eCLJup"
+      id="close-popup-btn"
+      onClick={[MockFunction]}
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;

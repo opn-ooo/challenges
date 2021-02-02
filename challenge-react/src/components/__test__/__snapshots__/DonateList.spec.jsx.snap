@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DonateList render correctly 1`] = `
+<div
+  className="sc-jrAGrp dVWBci"
+>
+  <div
+    className="sc-iBPRYJ hyDFeT sc-kEjbxe etBImo"
+  >
+    <div
+      className="sc-jSgupP iiJNAZ"
+    >
+      <div
+        className="sc-gKsewC hIxykI"
+        onClick={[Function]}
+      />
+      <div
+        className="sc-gsTCUz dCGfcy"
+      >
+        <h3>
+          Select the amiunt to donate (
+          )
+        </h3>
+        <form
+          className="sc-dlfnbm lgmEEb"
+          onSubmit={[Function]}
+        >
+          <div>
+            <label
+              className="sc-eCssSg iNcjtx"
+            >
+              <input
+                name="payment"
+                required={true}
+                type="radio"
+                value={10}
+              />
+              10
+            </label>
+            <label
+              className="sc-eCssSg iNcjtx"
+            >
+              <input
+                name="payment"
+                type="radio"
+                value={20}
+              />
+              20
+            </label>
+            <label
+              className="sc-eCssSg iNcjtx"
+            >
+              <input
+                name="payment"
+                type="radio"
+                value={50}
+              />
+              50
+            </label>
+            <label
+              className="sc-eCssSg iNcjtx"
+            >
+              <input
+                name="payment"
+                type="radio"
+                value={100}
+              />
+              100
+            </label>
+            <label
+              className="sc-eCssSg iNcjtx"
+            >
+              <input
+                name="payment"
+                type="radio"
+                value={500}
+              />
+              500
+            </label>
+          </div>
+          <div
+            className="sc-hKgILt kJXgYw"
+          >
+            <button
+              className="sc-bdfBwQ eCLJup"
+              type="submit"
+            >
+              Pay
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "overflow": "hidden",
+        }
+      }
+    >
+      <img
+        className="sc-fubCfw diUEuu"
+        src="/images/test.jpg"
+      />
+    </div>
+    <div
+      className="sc-pFZIQ kgmWnS"
+    >
+      <p
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        test
+      </p>
+      <button
+        className="sc-bdfBwQ eCLJup"
+        id="donate-btn"
+        onClick={[Function]}
+      >
+        Donate
+      </button>
+    </div>
+  </div>
+</div>
+`;

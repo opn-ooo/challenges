@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal render correctly visible false 1`] = `
+<div
+  className="sc-bdfBwQ kiuMva"
+>
+  <div
+    className="sc-gsTCUz iXsQNC"
+    onClick={[MockFunction]}
+  />
+</div>
+`;
+
+exports[`Modal render correctly visible true 1`] = `
+<div
+  className="sc-bdfBwQ gHXmzS"
+>
+  <div
+    className="sc-gsTCUz iXsQNC"
+    onClick={[MockFunction]}
+  />
+</div>
+`;

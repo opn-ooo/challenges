@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DonateForm render correctly 1`] = `
+<div
+  className="sc-gsTCUz dCGfcy"
+>
+  <h3>
+    Select the amiunt to donate (
+    THB
+    )
+  </h3>
+  <form
+    className="sc-dlfnbm lgmEEb"
+    onSubmit={[MockFunction]}
+  >
+    <div>
+      <label
+        className="sc-eCssSg iNcjtx"
+      >
+        <input
+          name="payment"
+          required={true}
+          type="radio"
+          value={10}
+        />
+        10
+      </label>
+      <label
+        className="sc-eCssSg iNcjtx"
+      >
+        <input
+          name="payment"
+          type="radio"
+          value={20}
+        />
+        20
+      </label>
+      <label
+        className="sc-eCssSg iNcjtx"
+      >
+        <input
+          name="payment"
+          type="radio"
+          value={50}
+        />
+        50
+      </label>
+      <label
+        className="sc-eCssSg iNcjtx"
+      >
+        <input
+          name="payment"
+          type="radio"
+          value={100}
+        />
+        100
+      </label>
+      <label
+        className="sc-eCssSg iNcjtx"
+      >
+        <input
+          name="payment"
+          type="radio"
+          value={500}
+        />
+        500
+      </label>
+    </div>
+    <div
+      className="sc-hKgILt kJXgYw"
+    >
+      <button
+        className="sc-bdfBwQ eCLJup"
+        type="submit"
+      >
+        Pay
+      </button>
+    </div>
+  </form>
+</div>
+`;
