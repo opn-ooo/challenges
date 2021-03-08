@@ -9,7 +9,7 @@ import {
 export const useCharitesHook = () => {
   const dispatch = useDispatch();
   const charitiesList = useSelector(charitiesSelector);
-  const errorMesssage = useSelector(errorSelector);
+  const errorFetchMesssage = useSelector(errorSelector);
   const status = useSelector(statusSelector);
 
   function fetchCharities() {
@@ -19,7 +19,7 @@ export const useCharitesHook = () => {
     dispatch,
     charitiesList,
     fetchCharities,
-    errorMesssage,
+    errorFetchMesssage,
     status,
   };
 };

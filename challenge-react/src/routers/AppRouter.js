@@ -3,6 +3,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import loadable from '@loadable/component';
 
 const Home = loadable(() => import('@/pages/Home'));
+const Error = loadable(() => import('@/pages/ErrorPage'));
+
 const Layout = loadable(() => import('@/layouts'));
 const AppRouter = () => {
   return (
@@ -11,6 +13,9 @@ const AppRouter = () => {
         <Switch>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="*">
+            <Error />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -15,6 +15,8 @@ export const charitiesSlice = createSlice({
     builder
       .addCase(fetchCharitiesList.fulfilled, (state, action) => {
         state.data.charitiesList = action?.payload;
+        state.data.errorMessage = null;
+        state.status = STATUS_MESSAGE.SUCCESS;
       })
       .addCase(fetchCharitiesList.rejected, (state, action) => {
         state.status = STATUS_MESSAGE.FAILED;

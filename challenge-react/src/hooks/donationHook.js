@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchDonationList,
+  successSelector,
   donationToCharities,
   donationAmountSelector,
   errorSelector,
@@ -10,6 +11,7 @@ export const useDonationHook = () => {
   const dispatch = useDispatch();
   const amount = useSelector(donationAmountSelector);
   const errorMessage = useSelector(errorSelector);
+  const successMessage = useSelector(successSelector);
   const isLoading = useSelector(loadingSelector);
   async function fetchAmount() {
     await dispatch(fetchDonationList());
@@ -25,6 +27,7 @@ export const useDonationHook = () => {
     errorMessage,
     isLoading,
     donate,
+    successMessage,
     fetchAmount,
   };
 };

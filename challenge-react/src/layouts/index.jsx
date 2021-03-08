@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Global } from '../global';
+import { ToastProvider } from 'react-toast-notifications';
+
 export default function Layout({ children }) {
   return (
     <React.Fragment>
@@ -16,7 +18,9 @@ export default function Layout({ children }) {
         />
       </Helmet>
       <Global />
-      <div>{children}</div>
+      <ToastProvider>
+        <div>{children}</div>
+      </ToastProvider>
     </React.Fragment>
   );
 }

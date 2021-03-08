@@ -17,6 +17,11 @@ export const errorSelector = createSelector(
   (data) => data.errorMessage
 );
 
+export const successSelector = createSelector(
+  donationDataSelector,
+  (data) => data.successMessage
+);
+
 export const loadingSelector = createSelector(
   donationDataSelector,
   (data) => data?.isLoading

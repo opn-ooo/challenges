@@ -1,10 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 const pxToVw = (size, width = 1440) => `${(size / width) * 100}vw`;
-import { normalize } from 'styled-normalize';
 
-export const Global = createGlobalStyle((theme) => {
+export const Global = createGlobalStyle(() => {
   return `
-  ${normalize}
   * {
     margin: 0;
     padding: 0;
