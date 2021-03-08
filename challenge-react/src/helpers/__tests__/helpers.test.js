@@ -7,4 +7,7 @@ describe('helpers', function () {
   test('`summaryDonations` should be return 10 when some value is null', () => {
     expect(summaryDonations([1, 2, 3, 4, null])).toEqual(10);
   });
+  test('`summaryDonations` should be return 0 when empty', () => {
+    expect(summaryDonations()).toEqual(0);
+  });
 });
