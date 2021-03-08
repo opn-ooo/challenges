@@ -6,7 +6,7 @@ import {
   FormSubmitWrapper,
   Button,
 } from '@/components';
-import { donateCountList } from '@/constants'
+import { donateCountList } from '@/constants';
 
 export const DonateForm = (props) => (
   <FormWrapper>

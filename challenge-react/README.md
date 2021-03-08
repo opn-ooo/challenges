@@ -73,10 +73,13 @@ Let's rock! :metal:
 ```sh
 npm install
 ```
+
 ## Run both
+
 ```
 npm run dev
 ```
+
 ## Run Client
 
 ```sh

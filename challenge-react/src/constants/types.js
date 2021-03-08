@@ -3,4 +3,4 @@ export const MODULE_NAMESPACE = {
   DONATIONS: 'DONATION_MODULE',
 };
 
-export const donateCountList = [10, 20, 50, 100, 500]
+export const donateCountList = [10, 20, 50, 100, 500];
