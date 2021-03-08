@@ -54,7 +54,6 @@ module.exports = {
       '@/helpers': path.resolve(__dirname, 'src/helpers/'),
       '@/hooks': path.resolve(__dirname, 'src/hooks/'),
       '@/modules': path.resolve(__dirname, 'src/modules/'),
-      '@/contexts': path.resolve(__dirname, 'src/contexts/'),
       '@/layouts': path.resolve(__dirname, 'src/layouts'),
       '@/routers': path.resolve(__dirname, 'src/routers'),
       '@/store': path.resolve(__dirname, 'src/store'),
