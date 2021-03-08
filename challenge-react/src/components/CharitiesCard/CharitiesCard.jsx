@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Card, Modal, DonateForm, CardFooter, Button, ImagesMedia, Title } from '@/components';
+import {
+  Card,
+  Modal,
+  DonateForm,
+  CardFooter,
+  Button,
+  ImagesMedia,
+  Title,
+} from '@/components';
 import { useDonationHook } from '@/hooks';
 
 export const CharitiesCard = ({ value }) => {
