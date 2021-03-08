@@ -1,0 +1,3 @@
+export const MODULE_NAMESPACE = {
+  CHARITIES: 'CHARITIES_MODLUE',
+};

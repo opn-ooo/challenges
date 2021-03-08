@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useMemo } from 'react';
 import { summaryDonations } from '@/helpers';
 import { ImgMedia, Card, Container, Button } from '@/components';
 import { replaceImg } from '@/utils';
@@ -25,11 +24,16 @@ export const CloseButton = styled.div`
   right: 0;
   padding: 15px;
   font-size: 2rem;
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.4rem;
+  }
   &::before {
     content: 'x';
   }
 `;
-
 
 const CardFooter = styled.div`
   display: flex;
@@ -47,6 +51,12 @@ const FormWrapper = styled.div`
   justify-content: center;
   padding: 0 20px;
   font-size: 2rem;
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+  }
+  @media (min-width: 1024px) {
+    font-size: 1rem;
+  }
 `;
 
 const FormStyled = styled.form`
@@ -63,18 +73,31 @@ const RadioWrapper = styled.label`
   margin-right: 5px;
 `;
 
+const ContainerImg = styled.div`
+  display: flex;
+  margin: 1.5rem;
+  height: 250px;
+  justify-content: center;
+  @media (min-width: 768px) {
+    height: 160px;
+  }
+  @media (min-width: 1024px) {
+    height: 250px;
+  }
+`;
+
 const DonateForm = (props) => (
   <FormWrapper>
     <h4>Select the amiunt to donate ({props.currency})</h4>
     <FormStyled onSubmit={props.onSubmit}>
       <div>
-        {[10, 20, 50, 100, 500].map((amount, j) => (
+        {[10, 20, 50, 100, 500].map((amount, index) => (
           <RadioWrapper key={amount}>
             <input
               type="radio"
               name="payment"
               value={amount}
-              required={j === 0}
+              required={index === 0}
             />
             {amount}
           </RadioWrapper>
@@ -95,20 +118,30 @@ const Modal = (props) => (
 );
 
 const Header = styled.header`
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
-    margin: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 1rem;
 `;
-
+import { CharitesHook } from '@/hooks';
 export default function Home() {
+  const { fetchCharities, charitiesList, errorMesssage, status } = CharitesHook();
+  useEffect(() => {
+    fetchCharities();
+    console.log(charitiesList);
+  }, []);
+
+  useMemo(() => {
+    console.log('error:', errorMesssage);
+  }, [errorMesssage]);
+
   return (
     <div>
-      <Header>
-        Tamboo React
-      </Header>
+      <Header>Tamboo React</Header>
+      {/* {console.log(charitiesList)} */}
+      {console.log(errorMesssage, status)}
       <Container>
-        {[1, 2, 3, 4].map((box, index) => (
+        {charitiesList?.map((box, index) => (
           <CharitiesCard key={index} box={box} />
         ))}
       </Container>
@@ -116,25 +149,34 @@ export default function Home() {
   );
 }
 
+const Title = styled.p`
+font-size: 2rem;
+@media (min-width: 768px) {
+  font-size: 1.5rem;
+}
+@media (min-width: 1024px) {
+  font-size: 1rem;
+}
+`
+
 const CharitiesCard = ({ box }) => {
   const [formVisible, setFormVisible] = useState(false);
-  console.log(summaryDonations([1, 2, 3, 4]));
-  const toggleDonateForm = () => {
+  const toggleDonateForm = () =>
     setFormVisible(!formVisible);
-  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
   return (
     <Card>
       <Modal visible={formVisible} onClose={toggleDonateForm}>
         <DonateForm onSubmit={handleSubmit} currency={'THB'} />
       </Modal>
-      <ImgMedia src={replaceImg('baan-kru-noi.jpg')} alt="" />
+      <Images src={box?.image} />
       <CardFooter>
-        <p>Box</p>
-
+        <Title>{box?.name}</Title>
         <Button id={'donate-btn'} onClick={toggleDonateForm}>
           Donate
         </Button>
@@ -142,3 +184,11 @@ const CharitiesCard = ({ box }) => {
     </Card>
   );
 };
+
+const Images = ({ src }) => {
+  return (
+    <ContainerImg>
+      <ImgMedia src={replaceImg(src)} alt={src} />
+    </ContainerImg>
+  )
+}

@@ -6,9 +6,11 @@ import App from './App';
 
 const store = createStore();
 
-render(
+const app = () => render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
 );
+
+app();
