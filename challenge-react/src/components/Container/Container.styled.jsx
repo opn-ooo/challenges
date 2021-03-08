@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { px2vw } from '@/helpers';
+import { pxToVw } from '@/helpers';
 
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: ${px2vw(80)};
+  margin: ${pxToVw(80)};
   max-width: 100%;
 `;

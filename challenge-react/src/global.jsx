@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
+const pxToVw = (size, width = 1440) => `${(size / width) * 100}vw`;
 import { normalize } from 'styled-normalize';
 
 export const Global = createGlobalStyle((theme) => {
@@ -12,12 +12,12 @@ export const Global = createGlobalStyle((theme) => {
   }
   :root {
     font-family: 'Open Sans', sans-serif;
-      font-size: ${px2vw(24)};
+      font-size: ${pxToVw(24)};
       @media (min-width: 768px) {
-        font-size: ${px2vw(18)};
+        font-size: ${pxToVw(18)};
       }
       @media (min-width: 1024px) {
-        font-size: ${px2vw(16)};
+        font-size: ${pxToVw(16)};
       }
     }
 `;
