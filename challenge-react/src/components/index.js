@@ -2,3 +2,8 @@ export * from './Card';
 export * from './Container';
 export * from './ImgMedia';
 export * from './Button';
+export * from './CharitiesCard';
+export * from './Donation';
+export * from './FormWrapper';
+export * from './Header';
+export * from './Modal';

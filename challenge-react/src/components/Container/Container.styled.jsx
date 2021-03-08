@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { px2vw } from '@/utils';
+import { px2vw } from '@/helpers';
 
 export const Container = styled.div`
   display: flex;

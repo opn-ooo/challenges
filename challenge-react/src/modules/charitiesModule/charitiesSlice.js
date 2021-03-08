@@ -21,8 +21,7 @@ export const charitiesSlice = createSlice({
         state.data.errorMessage = action?.payload?.statusText;
       })
       .addCase(fetchCharitiesList.pending, (state) => {
-        state.status = STATUS_MESSAGE.LOADING
-      })
-      ;
+        state.status = STATUS_MESSAGE.LOADING;
+      });
   },
 });

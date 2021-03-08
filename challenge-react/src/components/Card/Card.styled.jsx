@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { px2vw } from '@/utils';
+import { px2vw } from '@/helpers';
 
 export const Card = styled.div`
   display: flex;
@@ -21,4 +21,12 @@ export const Card = styled.div`
     min-height: ${px2vw(300)};
     height: 100%;
   }
+`;
+
+export const CardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 20px;
+  align-items: center;
 `;

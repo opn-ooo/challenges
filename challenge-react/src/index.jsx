@@ -6,11 +6,12 @@ import App from './App';
 
 const store = createStore();
 
-const app = () => render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+const app = () =>
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  );
 
 app();

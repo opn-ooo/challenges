@@ -4,13 +4,12 @@ import { charitiesService } from '@/api';
 
 export const fetchCharitiesList = createAsyncThunk(
   `${MODULE_NAMESPACE.CHARITIES}/fetch`,
-  async (_, thunkAPI) => {
+  async (_, ThunkSerivce) => {
     try {
       const data = await charitiesService?.fetchAll();
       return data;
     } catch (error) {
-      coonsole.error(error?.response);
-      return thunkAPI?.rejectWithValue(error?.response);
+      return ThunkSerivce?.rejectWithValue(error?.response);
     }
   }
 );

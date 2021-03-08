@@ -1,4 +1,4 @@
-import { axiosInstance } from '@/utils';
+import { axiosInstance } from '@/helpers';
 import { API } from '@/constants';
 export const charitiesService = (() => {
   const fetchAll = () =>

@@ -6,7 +6,7 @@ import {
   statusSelector,
 } from '@/modules/charitiesModule';
 
-export const CharitesHook = () => {
+export const useCharitesHook = () => {
   const dispatch = useDispatch();
   const charitiesList = useSelector(charitiesSelector);
   const errorMesssage = useSelector(errorSelector);

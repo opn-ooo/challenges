@@ -19,5 +19,5 @@ export const errorSelector = createSelector(
 
 export const statusSelector = createSelector(
   charitiesDefaultSelector,
-  data => data?.status
-)
+  (data) => data?.status
+);
