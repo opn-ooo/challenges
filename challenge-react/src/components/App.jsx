@@ -37,13 +37,20 @@ export const App = () => {
 
   return (
     <div>
-      <h1>Tamboon React</h1>
-      <p>All donations: {donationTotal}</p>
+      <header className="mainHeader">
+        <h1 className="headerTitle">Tamboon React</h1>
+        <p className="headerDonationTotal">
+          {/* TODO l10n */}
+          {`Total Donations: ${donationTotal}`}
+        </p>
+      </header>
       {message && <Message>{message}</Message>}
-      {charities.length > 0 &&
-        charities.map((charity) => (
-          <DonationOptionCard key={charity.id} option={charity} />
-        ))}
+      <div className="cardGrid">
+        {charities.length > 0 &&
+          charities.map((charity) => (
+            <DonationOptionCard key={charity.id} option={charity} />
+          ))}
+      </div>
     </div>
   );
 };
