@@ -7,6 +7,7 @@ import (
 // Rot128Reader implements io.Reader that transforms
 type Rot128Reader struct{ reader io.Reader }
 
+//NewRot128Reader func
 func NewRot128Reader(r io.Reader) (*Rot128Reader, error) {
 	return &Rot128Reader{reader: r}, nil
 }

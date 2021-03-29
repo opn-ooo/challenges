@@ -1,0 +1,46 @@
+2021/03/27 15:01:34 main.go:48: round0
+2021/03/27 15:01:34 main.go:48: round1
+2021/03/27 15:01:34 main.go:48: round2
+2021/03/27 15:01:34 main.go:54: err (400/invalid_card) expiration date cannot be in the past
+Transaction CreateCardToken
+gitlab.com/mo/challenges-challenge-go/internal/handler.(*Transaction).CreateCardToken
+	/Users/yarnadhis/go/challenges-challenge-go/internal/handler/Transaction.go:68
+gitlab.com/mo/challenges-challenge-go/internal/handler.(*Transaction).HandleTransaction
+	/Users/yarnadhis/go/challenges-challenge-go/internal/handler/Transaction.go:110
+main.main.func1
+	/Users/yarnadhis/go/challenges-challenge-go/main.go:52
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1357
+2021/03/27 15:01:34 main.go:84: 
+ routine error Transaction CreateCardToken: (400/invalid_card) expiration date cannot be in the past
+2021/03/27 15:01:34 main.go:48: round3
+2021/03/27 15:01:34 main.go:48: round4
+2021/03/27 15:01:34 main.go:54: err (400/invalid_card) expiration date cannot be in the past
+Transaction CreateCardToken
+gitlab.com/mo/challenges-challenge-go/internal/handler.(*Transaction).CreateCardToken
+	/Users/yarnadhis/go/challenges-challenge-go/internal/handler/Transaction.go:68
+gitlab.com/mo/challenges-challenge-go/internal/handler.(*Transaction).HandleTransaction
+	/Users/yarnadhis/go/challenges-challenge-go/internal/handler/Transaction.go:110
+main.main.func1
+	/Users/yarnadhis/go/challenges-challenge-go/main.go:52
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1357
+2021/03/27 15:01:35 main.go:84: 
+ routine error Transaction CreateCardToken: (400/invalid_card) expiration date cannot be in the past
+2021/03/27 15:01:35 main.go:48: round5
+2021/03/27 15:01:35 main.go:48: round6
+2021/03/27 15:01:35 main.go:54: err (400/invalid_card) expiration date cannot be in the past
+Transaction CreateCardToken
+gitlab.com/mo/challenges-challenge-go/internal/handler.(*Transaction).CreateCardToken
+	/Users/yarnadhis/go/challenges-challenge-go/internal/handler/Transaction.go:68
+gitlab.com/mo/challenges-challenge-go/internal/handler.(*Transaction).HandleTransaction
+	/Users/yarnadhis/go/challenges-challenge-go/internal/handler/Transaction.go:110
+main.main.func1
+	/Users/yarnadhis/go/challenges-challenge-go/main.go:52
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1357
+2021/03/27 15:01:35 main.go:84: 
+ routine error Transaction CreateCardToken: (400/invalid_card) expiration date cannot be in the past
+2021/03/27 15:01:35 main.go:48: round7
+2021/03/27 15:01:35 main.go:48: round8
+2021/03/27 15:01:36 main.go:48: round9
