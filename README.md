@@ -48,6 +48,7 @@ Pick the one that most suites the position you wish to apply.
 
 * Backend / Go - [go-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-go)
 * Backend / Elixir - [elixir-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-elixir)
+* Backend / Phoenix / Elixir - [phoenix-challenge](https://github.com/opn-ooo/challenges/tree/master/challenge-phoenix)
 * Devops / Kubernetes [challenge-devops](https://github.com/opn-ooo/challenges/tree/master/challenge-devops)
 * Frontend / React - [tamboon-react](https://github.com/opn-ooo/challenges/tree/master/challenge-react)
 * Mobile App / iOS and Android - [tamboon-mobile](https://github.com/opn-ooo/challenges/tree/master/challenge-mobile)
