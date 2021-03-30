@@ -8,6 +8,10 @@ Build a web application using a Phoenix Framework. At root, it should display th
 
 We value an easy-to-read code. Although, this is very subjective to a team coding style. We do not expect your solution to be perfectly matched with our coding guidelines nor our coding style. But be sure to review your own code at least once or twice, improve it, and give it your best.
 
+## Submitting your code
+
+Please follow out ground rules described [here](https://github.com/opn-ooo/challenges#ground-rules).
+
 ## Programming languages & Framework
 
 * [Elixir / Erlang](https://elixir-lang.org/)
