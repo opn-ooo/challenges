@@ -18,12 +18,12 @@ We value an easy-to-read code. Although, this is very subjective to a team codin
 * Functionality - The application must be able to up and running on a local machine and provide the functionality described in the [exercise](#exercise) section.
 * Description - Provide necessary information for the application.
 
-### Extras
+## Extras
 
 * Implement an authentication system on top of the live dashboard.
 * Count how many times the live dashboard page is hit. Persist the counter in memory. And print page hit counter into a console when live dashboard path is hit.
 
-### Bonus
+## Bonus
 
 * Typespec your code.
 * Provide a docker-compose file.
