@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postPayment } from '../post-payment';
 import { actions } from '../actions';
+import { ConfirmDonationModal } from './Modal.jsx';
 
 const kPaymentAmounts = [10, 20, 50, 100, 500];
 
@@ -32,6 +33,7 @@ export const DonationOptionCard = ({
   setOpen,
 }) => {
   const [paymentAmount, setPaymentAmount] = useState(10);
+  const [showConfirm, setShowConfirm] = useState(false);
   const dispatch = useDispatch();
 
   const onOpen = () => {
@@ -47,27 +49,50 @@ export const DonationOptionCard = ({
     setPaymentAmount(amt);
   };
 
-  const onClickPay = async () => {
+  const onClickPay = () => {
+    setShowConfirm(true);
+  };
+
+  const onClickConfirm = async () => {
     const { id, currency, name } = option;
     try {
+      // uncomment next line to trigger error alert dialog
+      // await Promise.reject(new Error('FAKE: processing error'));
       const postedPayment = await postPayment(id, paymentAmount, currency);
 
       dispatch(actions.addPayment(postedPayment));
       const msg = formatThankYouMessage(paymentAmount, currency, name);
-      dispatch(actions.updateMessage(msg));
+      dispatch(actions.setMessage(msg));
     } catch (error) {
-      console.error(error);
+      // TODO: l10n, also provide different titles/messages per error
+      dispatch(
+        actions.setError({
+          title: 'Error in Payment Processing',
+          message:
+            'Funds were not deducted from your balance, because of the following error:',
+          original: error,
+        })
+      );
+    } finally {
+      setShowConfirm(false);
     }
   };
-  const style = {
-    backgroundImage: `url(./images/${option.image})`,
+
+  const closeConfirmModal = () => {
+    setShowConfirm(false);
   };
-  const currencyNote = `(${option.currency})`;
+
+  const { name, image, currency } = option;
+
+  const style = {
+    backgroundImage: `url(./images/${image})`,
+  };
+  const currencyNote = `(${currency})`;
   return (
     <div className="DonationOptionCard" style={style}>
       <div className="cardFrontOverlay" data-open={isOpen}>
         <div className="overlayTitle">
-          <div className="charityName">{option.name}</div>
+          <div className="charityName">{name}</div>
           {isOpen ? (
             <CloseButton
               className="closeOverlayButton"
@@ -75,7 +100,7 @@ export const DonationOptionCard = ({
               fill={'#687389'}
             />
           ) : (
-            <button className="donateButton" onClick={onOpen}>
+            <button className="borderedButton secondaryButton" onClick={onOpen}>
               {/* TODO: l10n */}
               {'Donate'}
             </button>
@@ -92,7 +117,7 @@ export const DonationOptionCard = ({
               {`Select the amount to donate ${currencyNote}`}
             </div>
             <div className="paymentOptions">
-              {kPaymentAmounts.map((amount, i) => (
+              {kPaymentAmounts.map((amount) => (
                 <PaymentAmountOption
                   key={amount}
                   amount={amount}
@@ -102,7 +127,10 @@ export const DonationOptionCard = ({
               ))}
             </div>
             <div className="paymentActionButtonContainer">
-              <button className="payButton" onClick={onClickPay}>
+              <button
+                className="borderedButton primaryButton"
+                onClick={onClickPay}
+              >
                 {/* TODO: l10n */}
                 {'Pay'}
               </button>
@@ -110,6 +138,14 @@ export const DonationOptionCard = ({
           </div>
         </div>
       </div>
+      <ConfirmDonationModal
+        show={showConfirm}
+        onCancel={closeConfirmModal}
+        onConfirm={onClickConfirm}
+        amount={paymentAmount}
+        currency={currency}
+        charityName={name}
+      />
     </div>
   );
 };

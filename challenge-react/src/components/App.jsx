@@ -1,17 +1,16 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import fetch from 'isomorphic-fetch';
-import styled from 'styled-components';
 import { DonationOptionCard } from './DonationOptionCard.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../actions';
+import { ErrorAlertModal } from './Modal.jsx';
 
-const Message = styled.p`
-  color: red;
-  margin: 1em 0;
-  font-weight: bold;
-  font-size: 16px;
-  text-align: center;
-`;
+const GratitudeMessage = ({ children }) => {
+  return (
+    <div className="gratitudeMessageContainer">
+      <div className="gratitudeMessage">{children}</div>
+    </div>
+  );
+};
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -38,25 +37,51 @@ export const App = () => {
   const [openOptionId, setOpenOptionId] = useState(-1);
 
   useEffect(() => {
-    fetch('http://localhost:3001/charities')
+    window
+      .fetch('http://localhost:3001/charities')
       .then((resp) => {
         return resp.json();
       })
       .then((charities) => {
         dispatch(actions.setCharities(charities));
+      })
+      .catch((error) => {
+        dispatch(
+          actions.setError({
+            title: 'Could not get Charities',
+            message: 'An error occurred while trying to get list of charities',
+            original: error,
+          })
+        );
       });
 
-    fetch('http://localhost:3001/payments')
+    window
+      .fetch('http://localhost:3001/payments')
       .then((resp) => {
         return resp.json();
       })
       .then((payments) => {
         dispatch(actions.setPayments(payments));
+      })
+      .catch((error) => {
+        dispatch(
+          actions.setError({
+            title: 'Could not get Payments',
+            message: 'An error occurred while trying to get payment history',
+            original: error,
+          })
+        );
       });
   }, []);
 
+  useEffect(() => {
+    if (message.length > 0) {
+      setOpenOptionId(-1);
+    }
+  }, [message]);
+
   return (
-    <div>
+    <div id="app">
       <header className="mainHeader">
         <h1 className="headerTitle">Tamboon React</h1>
         <p className="headerDonationTotal">
@@ -64,7 +89,7 @@ export const App = () => {
           {`Total Donations: ${donationTotal}`}
         </p>
       </header>
-      {message && <Message>{message}</Message>}
+      {message && <GratitudeMessage>{message}</GratitudeMessage>}
       <div className="cardGrid">
         {charities.length > 0 &&
           charities.map((charity) => (
@@ -77,6 +102,7 @@ export const App = () => {
             />
           ))}
       </div>
+      <ErrorAlertModal />
     </div>
   );
 };
