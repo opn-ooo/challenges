@@ -1,7 +1,5 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { actions } from '../actions';
 
 /**
  *
@@ -77,47 +75,6 @@ export const ConfirmDonationModal = ({
           <button className="borderedButton primaryButton" onClick={onConfirm}>
             {/* TODO: l10n */}
             {'Confirm'}
-          </button>
-        </div>
-      </div>
-    </ModalScrim>
-  );
-};
-
-/**
- *
- * @param {boolean} show triggers modal open
- * @returns JSX.Element
- */
-export const ErrorAlertModal = () => {
-  const error = useSelector((s) => s.error);
-  const dispatch = useDispatch();
-
-  const onClose = () => {
-    dispatch(actions.setError(null));
-  };
-
-  if (!error) {
-    return null;
-  }
-
-  return (
-    <ModalScrim show={error}>
-      <div className="modal errorAlertModal">
-        <div className="modalGridCell header">
-          <span>{error.title}</span>
-        </div>
-        <div className="modalGridCell message">
-          <span>{error.message}</span>
-        </div>
-        {/* TODO hide in production */}
-        <div className="modalGridCell details">
-          <pre>{error.original.toString()}</pre>
-        </div>
-        <div className="modalGridCell actionButtonCell">
-          <button className="borderedButton primaryButton" onClick={onClose}>
-            {/* TODO: l10n */}
-            {'Close'}
           </button>
         </div>
       </div>

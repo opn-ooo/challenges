@@ -1,3 +1,5 @@
+const kPostPaymentApiUrl = 'http://localhost:3001/payments/';
+
 const kPaymentSchema = {
   id: 'number',
   charitiesId: 'number',
@@ -9,7 +11,7 @@ const kPaymentSchema = {
 // for values to be passed to the API
 
 /**
- * tests if object is a valid payment
+ * tests if payment arguments are valid
  *
  * @param {any} charitiesId
  * @param {any} amount
@@ -46,9 +48,8 @@ export async function postPayment(id, amount, currency, fetch = window.fetch) {
     throw new Error('InvalidPaymentArguments');
   }
 
-  const url = 'http://localhost:3001/payments/';
   const payload = { charitiesId: id, amount, currency };
-  const resp = await fetch(url, {
+  const resp = await fetch(kPostPaymentApiUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
