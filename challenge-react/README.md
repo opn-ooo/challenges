@@ -45,7 +45,7 @@ Desire to win the war? Well, to make it a little more fun, please remember that
 
 - Change existing behaviors.
 - Change the API server.
-- Change from JS to other languages.
+- Change from JavaScript/TypeScript to other languages.
 
 **In the other hand, feel free to:**
 
@@ -55,6 +55,7 @@ Desire to win the war? Well, to make it a little more fun, please remember that
 - Modify existing code.
 - Add new packages.
 - Update `webpack` config.
+- Change language from JavaScript to TypeScript.
 - Take reasonable time to complete the challenge, no need to rush.
 - Edit `README.md` to add documentation. What have you done or how to run or test your app?
 
