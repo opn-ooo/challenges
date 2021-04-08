@@ -10,7 +10,7 @@ We value an easy-to-read code. Although, this is very subjective to a team codin
 
 ## Submitting your code
 
-Please follow out ground rules described [here](https://github.com/opn-ooo/challenges#ground-rules).
+Please follow our ground rules described [here](https://github.com/opn-ooo/challenges#ground-rules).
 
 ## Programming languages & Framework
 
