@@ -31,7 +31,7 @@ Please follow our ground rules described [here](https://github.com/opn-ooo/chall
 
 * Typespec your code.
 * Provide a docker-compose file.
-* Provide a Dockerfile and make a ready for production release.
+* Provide a Dockerfile and make it ready for production release.
 
 > Many hidden truths are often unobserved, not invisible. _Matthew A. Petti_
 
@@ -55,7 +55,11 @@ We understand that, for most developers, Elixir doesn't seem quite well-known ye
 
 ### Hold your horse!
 
-Elixir development doesn't provide a convenient GUI (Graphic User Interface), so everything from now on will be based on running a command in a command prompt terminal. If you're not familiar with the command line terminal, we recommend learning a basic about it first.
+Elixir development doesn't provide a convenient GUI (Graphic User Interface), so everything from now on will be based on running a command in a command prompt terminal. If you're not familiar with the command prompt, we recommend learning a basic about it first.
+
+Here are some useful sources for learning command-line basics.
+- https://www.davidbaumgold.com/tutorials/command-line/. Getting to know essential command-line utilities.
+- https://www.hongkiat.com/blog/web-designers-essential-command-lines/. Also basic command-line commands.
 
 ### What is Elixir?
 
