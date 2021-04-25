@@ -1,90 +1,55 @@
-# TAMBOON-MOBILE
+# CHALLENGE-MOBILE
 
-`TamBoon`(n): Thai word for making merit. 
+### INSTRUCTIONS
 
-The assignment consists of two parts:
-1. A server-side API: the implementation of this has been completed, all you need to do is to setup and run the server.
-2. An iOS or Android application: please implement this part.
+2. You have 5 days to build an iOS or Android application based on the role you are applying for.
+2. Please build your application using Swift (iOS) or Kotlin (Android). *Optionally*, you could build your UI using SwiftUI or Jetpack Compose; nonetheless the traditional way of building the UI is still totally fine.
+3. We will be providing you instructions on what we are expecting in each screen, although the UI design is totally up to you.
+4. We are expecting deliverables that are relevant to the timeframe given and the position that you are applying for. 
+5. It is highly recommended that you spend some time planning your deliverables, implementation methods, and architecture before jumping into the implementation.
+6. Submission is done via a [git format-patch](https://git-scm.com/docs/git-format-patch). Compress (zip) your patches and send them to the hiring team.
 
-### SERVER-SIDE API
+### CHALLENGE - A simple e-market application
 
-* A [Go](https://golang.org/) implementation (with a pre-compiled OS X binary) is provided
-  inside the `tamboon-server` folder with a `Makefile` for building and running it.
+You will be creating a simple e-market application which allows user to view the store details and products, add products to the basket, and place an order. You will be using this [Swagger mock API](https://app.swaggerhub.com/apis-docs/m-tul/opn-mobile-challenge-api/1.0.0#/) to perform all the requests; there you will also be able to see the API documentations.
 
-You will need to obtain an Omise API key in order to start the Go implementation.
+The application should consists of three screens:
 
-```sh
-$ cd tamboon-server
-$ export OMISE_SKEY=skey_your_omise_key
-$ make run
-```
-
-The server should have 2 endpoints:
-
-1. `GET /charities` - This endpoint should return a JSON list of charities similar to the
-   following:
-
-   ```json
-   [
-     { "id": 0, "name": "Ban Khru Noi", "logo_url": "http://rkdretailiq.com/news/img-corporate-baankrunoi.jpg" },
-     { "id": 1, "name": "Habitat for Humanity Thailand", "logo_url": "http://www.adamandlianne.com/uploads/2/2/1/6/2216267/3231127.gif" },
-     { "id": 2, "name": "Paper Ranger", "logo_url": "https://myfreezer.files.wordpress.com/2007/06/paperranger.jpg" },
-     { "id": 3, "name": "Makhampom", "logo_url": "http://www.makhampom.net/makhampom/ppcms/uploads/UserFiles/Image/Thai/T14Publice/2554/January/Newyear/logoweb.jpg" }
-   ]
-   ```
-
-2. `POST /donations` - This endpoint should accepts a JSON payload similar to the following:
-
-   ```json
-   {
-     "name":   "John Smith",
-     "token":  "tokn_test_123",
-     "amount": 10000
-   }
-   ```
-  The server should then creates a charge using the supplied token against the Omise API.
-
-
-### MOBILE APPLICATION
-
-The application should use the default platform style and should consists of two screens:
-
-1. Charity list screen. - Load list of charities from the `/charities` server-side
-   endpoint and display them using `RecyclerView` (Android) or `UITableView` (iOS). Tapping a
-   charity should bring up the next screen.
-
-2. Charity donation screen. - Shows a credit card number entry form and a field to enter
-   donation amount in THB. Submitting the form should displays a progress spinner and send
-   data to the `/donations` endpoint in the background. After everything is complete,
-   bring up the next screen.
-
-3. Success screen. - Shows a simple dismiss button that goes back to the first screen.
+1. Store details & products screen:
+   - Fetch the store detail from `/storeInfo` endpoint and display them in the upper part of the screen.
+   - Fetch the list of products from `/products` endpoint and display them in a list below store detail section.
+   - Add an ability for the user to select product(s). 
+     - *Skills Challenge*: It is your choice on how you'd like to build this feature and the skills you'd like to demonstrate to us. 
+       You could allow:
+       - Multiple quantity (e.g. + and - button on each product) and mutiple products selection
+       - Multiple products selection (e.g. checkboxes), but only a single quantity for each product
+       - Only one product selection
+   - Add a button at the bottom most of the screen to bring the user to the order summary screen.
+2. Order summary screen:
+   - Display the product(s) selected.
+   - Display the total price.
+   - Add one text box to allow user to fill in the delivery address.
+   - Add a button at the bottom of the screen for the user to confirm order placement. Tapping on this button should display a loading indicator and make a request to post the data to `/order` endpoint. After the network request is completed, display a success screen.
+3. Success screen:
+   1. Show a simple dismiss button that brings the user back to the first screen.
 
 **DOs**
 
 * Git version-control is being used with relevant commit messages.
-* Code/architecture supports scaling and reusability
-* Handles HTTP status codes properly.
-* Handles API error response gracefully.
+* Adhere to platform development guidelines and coding conventions.
+* Code/architecture supports scaling and reusability.
 * Write clean, readable and well-structured code.
-* Follow good platform development guidelines where applicable.
-* Follow good UI/UX principles.
-* Unit tests
-* (Optional) Use one of the Omise-provided Mobile SDKs.
-* (Bonus) Follow good security principles.
-* (Bonus) UI Tests.
-
-**DONTs**
-
-Since this is just a quick test, you do not need to spend time on:
-
-* Database, persistent storage or any form of caching.
+* Code is loosely coupled and uses an architecture simliar to MVVM, CLEAN, VIPER, MVP, etc.
+* Handles HTTP status codes properly.
+* Follow recommended UI/UX principles.
+* Unit tests.
+* (Bonus) UI tests.
 
 **CAUTIONs**
 
 Your assignment could be rejected if
-* The project does not compile or run.
+* The project fails to compile or compiles with servere warnings.
 * The main functionalities are incomplete or do not work as expected.
-* There is little to none unit tests for the main business logic.
+* There is no unit tests with decent code coverage or the tests are failing.
 * Unreasonable amount of external libraries being used.
 * Code are inconsistent, anti-patterns, or shown to be a direct duplication from other sources.
