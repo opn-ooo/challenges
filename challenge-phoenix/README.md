@@ -4,7 +4,7 @@ Reborn is a simple Phoenix web application that monitors a host system it runs o
 
 ## Exercise
 
-Build a web application using a Phoenix Framework. At root, it should display the Phoenix Live Dashboard. The Live Dashboard should also provide OS information and Database metrics.
+Build a web application using a Phoenix Framework. At root (localhost:4000), it should display the [Phoenix Live Dashboard](https://hexdocs.pm/phoenix_live_dashboard/Phoenix.LiveDashboard.html). The Live Dashboard should also provide OS information and Database metrics.
 
 We value an easy-to-read code. Although, this is very subjective to a team coding style. We do not expect your solution to be perfectly matched with our coding guidelines nor our coding style. But be sure to review your own code at least once or twice, improve it, and give it your best.
 
