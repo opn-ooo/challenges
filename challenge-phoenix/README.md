@@ -10,7 +10,9 @@ We value an easy-to-read code. Although, this is very subjective to a team codin
 
 ## Submitting your code
 
-Please follow our ground rules described [here](https://github.com/opn-ooo/challenges#ground-rules).
+* We prefer well-thought-out solutions. So take your time refining your code before submitting it.
+* Average completion time so far has been around one to two weeks.
+* Please submit your code by publishing them to any git providers, and then share the repository URL with us.
 
 ## Programming languages & Framework
 
@@ -59,7 +61,7 @@ Elixir development doesn't provide a convenient GUI (Graphic User Interface), so
 
 Here are some useful sources for learning command-line basics.
 - https://www.davidbaumgold.com/tutorials/command-line/. Getting to know essential command-line utilities.
-- https://www.hongkiat.com/blog/web-designers-essential-command-lines/. Also basic command-line commands.
+- https://www.hongkiat.com/blog/web-designers-essential-command-lines/. Also, basic command-line commands.
 
 ### What is Elixir?
 
