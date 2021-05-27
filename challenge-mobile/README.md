@@ -2,9 +2,9 @@
 
 ### INSTRUCTIONS
 
-2. You have 5 days to build an iOS or Android application based on the role you are applying for.
+2. You have 3-5 days to build an iOS or Android application based on the role you are applying for.
 2. Please build your application using Swift (iOS) or Kotlin (Android). *Optionally*, you could build your UI using SwiftUI or Jetpack Compose; nonetheless the traditional way of building the UI is still totally fine.
-3. We will be providing you instructions on what we are expecting in each screen, although the UI design is totally up to you.
+3. We will be providing the instructions on what we are expecting in each screen, although the UI design is totally up to you.
 4. We are expecting deliverables that are relevant to the timeframe given and the position that you are applying for. 
 5. It is highly recommended that you spend some time planning your deliverables, implementation methods, and architecture before jumping into the implementation.
 6. Submission is done via a [git format-patch](https://git-scm.com/docs/git-format-patch). Compress (zip) your patches and send them to the hiring team.
