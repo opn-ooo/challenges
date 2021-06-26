@@ -1,7 +1,7 @@
 const path = require('path');
 
 const config = {
-  entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.tsx'],
   output: {
     publicPath: '/dist/',
     path: path.resolve(__dirname, 'dist'),
@@ -28,7 +28,15 @@ const config = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.tsx?$/,
+        use: 'babel-loader',
+      },
     ],
+  },
+
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 
   mode: 'development',
