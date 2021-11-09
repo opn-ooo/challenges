@@ -11,7 +11,7 @@
 
 ### CHALLENGE - A simple e-market application
 
-You will be creating a simple e-market application which allows user to view the store details and products, add products to the basket, and place an order. You will be using this [Swagger mock API](https://app.swaggerhub.com/apis-docs/m-tul/opn-mobile-challenge-api/1.0.0#/) to perform all the requests; there you will also be able to see the API documentations.
+You will be creating a simple e-market application which allows user to view the store details and products, add products to the basket, and place an order. You will be using this [Postman mock API](https://documenter.getpostman.com/view/17820820/UVC3mU9x) to perform all the requests; there you will also be able to see the API documentations.
 
 The application should consists of three screens:
 
