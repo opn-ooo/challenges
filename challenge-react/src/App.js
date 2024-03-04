@@ -171,7 +171,10 @@ export default connect((state) => state)(
                 <p>Select the amount to donate (USD)</p>
                 <div>{payments}</div>
                 <Button
-                  onClick={() => handlePay(item.id, self.state.selectedAmount, item.currency)}
+                  onClick={async () => {
+                    await handlePay(item.id, self.state.selectedAmount, item.currency);
+                    self.setState({ selectDonation: 0 });
+                  }}
                 >
                   Pay
                 </Button>
@@ -220,14 +223,6 @@ export default connect((state) => state)(
           });
         }
       }
-
-      const style = {
-        color: 'red',
-        margin: '1em 0',
-        fontWeight: 'bold',
-        fontSize: '16px',
-        textAlign: 'center',
-      };
 
       const donate = this.props.donate;
       const message = this.props.message;
