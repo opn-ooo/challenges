@@ -1,12 +1,96 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import fetch from 'isomorphic-fetch';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { summaryDonations } from './helpers';
 
+const Wrapper = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
+  padding-right: 10px;
+  padding-left: 10px;
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+`;
+
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+`;
+
 const Card = styled.div`
-  margin: 10px;
-  border: 1px solid #ccc;
+  width: 47%;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 8px 0 rgba(204, 204, 204, 0.75);
+  -webkit-box-shadow: 4px 4px 8px 0 rgba(204, 204, 204, 0.75);
+  -moz-box-shadow: 4px 4px 8px 0 rgba(204, 204, 204, 0.75);
+  user-select: none;
+  position: relative;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+`;
+
+const Content = styled.div`
+  height: 400px;
+  width: 100%;
+`;
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+`;
+
+const Payment = styled.div`
+  height: 400px;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  opacity: 0.95;
+`;
+
+const Button = styled.button`
+  background-color: #fff;
+  border: 1px solid #4A69F1;
+  color: #4A69F1;
+  height: 30px;
+  border-radius: 3px;
+`;
+
+const Close = styled.div`
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 18px;
+
+  &:hover {
+    color: #999;
+  }
 `;
 
 export default connect((state) => state)(
@@ -14,23 +98,24 @@ export default connect((state) => state)(
     state = {
       charities: [],
       selectedAmount: 10,
+      selectDonation: 2,
     };
 
     componentDidMount() {
       const self = this;
       fetch('http://localhost:3001/charities')
-        .then(function (resp) {
+        .then(function(resp) {
           return resp.json();
         })
-        .then(function (data) {
+        .then(function(data) {
           self.setState({ charities: data });
         });
 
       fetch('http://localhost:3001/payments')
-        .then(function (resp) {
+        .then(function(resp) {
           return resp.json();
         })
-        .then(function (data) {
+        .then(function(data) {
           self.props.dispatch({
             type: 'UPDATE_TOTAL_DONATE',
             amount: summaryDonations(data.map((item) => item.amount)),
@@ -40,13 +125,13 @@ export default connect((state) => state)(
 
     render() {
       const self = this;
-      const cards = this.state.charities.map(function (item, i) {
+      const cards = this.state.charities.map(function(item, i) {
         const payments = [10, 20, 50, 100, 500].map((amount, j) => (
           <label key={j}>
             <input
-              type="radio"
-              name="payment"
-              onClick={function () {
+              type='radio'
+              name='payment'
+              onClick={function() {
                 self.setState({ selectedAmount: amount });
               }}
             />
@@ -56,18 +141,34 @@ export default connect((state) => state)(
 
         return (
           <Card key={i}>
-            <p>{item.name}</p>
-            {payments}
-            <button
-              onClick={handlePay.call(
-                self,
-                item.id,
-                self.state.selectedAmount,
-                item.currency
-              )}
-            >
-              Pay
-            </button>
+            <Content>
+              <Image src={`/images/${item.image}`} alt={item.name} />
+              <Footer>
+                <p>{item.name}</p>
+                <Button onClick={function() {
+                  self.setState({ selectDonation: item.id });
+                }}>Donate</Button>
+              </Footer>
+            </Content>
+            {self.state.selectDonation === item.id && (
+              <Payment>
+                <Close onClick={function() {
+                  self.setState({ selectDonation: 0 });
+                }}>x</Close>
+                <p>Select the amount to donate (USD)</p>
+                <div>{payments}</div>
+                <Button
+                  onClick={handlePay.call(
+                    self,
+                    item.id,
+                    self.state.selectedAmount,
+                    item.currency
+                  )}
+                >
+                  Pay
+                </Button>
+              </Payment>
+            )}
           </Card>
         );
       });
@@ -84,12 +185,16 @@ export default connect((state) => state)(
       const message = this.props.message;
 
       return (
-        <div>
-          <h1>Tamboon React</h1>
-          <p>All donations: {donate}</p>
-          <p style={style}>{message}</p>
-          {cards}
-        </div>
+        <Wrapper>
+          <Header>
+            <h1>Omise Tamboon React</h1>
+            <p>All donations: {donate}</p>
+            <p style={style}>{message}</p>
+          </Header>
+          <Container>
+            {cards}
+          </Container>
+        </Wrapper>
       );
     }
   }
@@ -97,15 +202,16 @@ export default connect((state) => state)(
 
 /**
  * Handle pay button
- * 
+ *
  * @param {*} The charities Id
  * @param {*} amount The amount was selected
  * @param {*} currency The currency
- * 
+ *
  * @example
  * fetch('http://localhost:3001/payments', {
-      method: 'POST',
-      body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
-    })
+ method: 'POST',
+ body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
+ })
  */
-function handlePay(id, amount, currency) {}
+function handlePay(id, amount, currency) {
+}
