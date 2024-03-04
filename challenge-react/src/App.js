@@ -17,6 +17,7 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   user-select: none;
+  height: 200px;
 `;
 
 
@@ -91,6 +92,14 @@ const Close = styled.div`
   &:hover {
     color: #999;
   }
+`;
+
+const Thank = styled.p`
+  color: red;
+  margin: 1em 0;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
 `;
 
 export default connect((state) => state)(
@@ -228,7 +237,7 @@ export default connect((state) => state)(
           <Header>
             <h1>Omise Tamboon React</h1>
             <p>All donations: {donate}</p>
-            <p style={style}>{message}</p>
+            <Thank>{message}</Thank>
           </Header>
           <Container>
             {cards}
