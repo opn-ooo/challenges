@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -129,6 +129,7 @@ export default connect((state) => state)(
         const payments = [10, 20, 50, 100, 500].map((amount, j) => (
           <label key={j}>
             <input
+              defaultChecked={amount === self.state.selectedAmount}
               type='radio'
               name='payment'
               onClick={function() {
@@ -146,7 +147,10 @@ export default connect((state) => state)(
               <Footer>
                 <p>{item.name}</p>
                 <Button onClick={function() {
-                  self.setState({ selectDonation: item.id });
+                  self.setState({
+                    selectDonation: item.id,
+                    selectedAmount: 10,
+                  });
                 }}>Donate</Button>
               </Footer>
             </Content>
@@ -158,12 +162,7 @@ export default connect((state) => state)(
                 <p>Select the amount to donate (USD)</p>
                 <div>{payments}</div>
                 <Button
-                  onClick={handlePay.call(
-                    self,
-                    item.id,
-                    self.state.selectedAmount,
-                    item.currency
-                  )}
+                  onClick={() => handlePay(item.id, self.state.selectedAmount, item.currency)}
                 >
                   Pay
                 </Button>
@@ -172,6 +171,46 @@ export default connect((state) => state)(
           </Card>
         );
       });
+
+      /**
+       * Handle pay button
+       *
+       * @param {*} The charities Id
+       * @param {*} amount The amount was selected
+       * @param {*} currency The currency
+       *
+       * @example
+       * fetch('http://localhost:3001/payments', {
+       method: 'POST',
+       body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
+       })
+       */
+      async function handlePay(id, amount, currency) {
+        const body = JSON.stringify({
+          charitiesId: id,
+          amount,
+          currency,
+        });
+        const response = await fetch('http://localhost:3001/payments', {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body,
+        });
+
+        if (response.status === 201) {
+          self.props.dispatch({
+            type: 'UPDATE_TOTAL_DONATE',
+            amount,
+          });
+          self.props.dispatch({
+            type: 'UPDATE_MESSAGE',
+            message: `Thank you for your donation of ${amount} ${currency}!`,
+          });
+        }
+      }
 
       const style = {
         color: 'red',
@@ -199,19 +238,3 @@ export default connect((state) => state)(
     }
   }
 );
-
-/**
- * Handle pay button
- *
- * @param {*} The charities Id
- * @param {*} amount The amount was selected
- * @param {*} currency The currency
- *
- * @example
- * fetch('http://localhost:3001/payments', {
- method: 'POST',
- body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
- })
- */
-function handlePay(id, amount, currency) {
-}
