@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Test Omise code challenge for frontend developer",
   "main": "src/index.js",
-  "author": "Ratchagarn Naewbuntad <ratchagarn@omise.co>, Andy D. Ng <andy@opn.ooo>",
   "license": "MIT",
   "scripts": {
     "server": "json-server --watch db.json --port 3001",
