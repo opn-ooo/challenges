@@ -21,9 +21,9 @@ The application should consists of three screens:
    - Add an ability for the user to select product(s). 
      - *Skills Challenge*: It is your choice on how you'd like to build this feature and the skills you'd like to demonstrate to us. 
        You could allow:
-       - Multiple quantity (e.g. + and - button on each product) and mutiple products selection
-       - Multiple products selection (e.g. checkboxes), but only a single quantity for each product
-       - Only one product selection
+       - Multiple quantity (e.g. + and - button on each product)
+       - Multiple product selections (e.g. checkboxes)
+       - Support only one product selection
    - Add a button at the bottom most of the screen to bring the user to the order summary screen.
 2. Order summary screen:
    - Display the product(s) selected.
