@@ -2,7 +2,7 @@
 
 ### Description: 
 
-Design and create automated test for the OPN company website (https://www.opn.ooo/) use any programming language and testing framework of your choice. The web application consists of the following functionalities:
+Design and create automated tests for the OPN company website (https://www.opn.ooo/). Use any programming language and testing framework of your choice. The web application consists of the following functionalities:
 
 1. Home Page - Brief summary of the company's products and information
 2. Header Menu - Consists of options about information on products, company, resources and Documentation
