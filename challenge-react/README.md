@@ -13,7 +13,7 @@ So here, you have been temporarily hired by Omise and assigned to work on the ch
 
 Fortunately, the API server is already done. You will need to grab on the requirements and complete the project while ensuring the application to have great engineering and well-design ✨
 
-![tamboon-react-screenshot](https://git.omise.co/storage/user/56/files/b407c6c4-ad09-11e7-8792-dc5b468333df)
+![tamboon-react-screenshot](https://github.com/opn-ooo/challenges/blob/master/challenge-react/resources/tamboon-react-screenshot.jpg)
 
 ## Mission
 
