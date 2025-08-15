@@ -11,19 +11,19 @@
 
 ### CHALLENGE - A simple e-market application
 
-You will be creating a simple e-market application which allows user to view the store details and products, add products to the basket, and place an order. You will be using this [Postman mock API](https://documenter.getpostman.com/view/17820820/UVC3mU9x) to perform all the requests; there you will also be able to see the API documentations.
+You will be creating a simple e-market application which allows user to view the store details and products, add products to the basket, and place an order. You will be using this [Beecepteor mock API](https://mobile-coding-challenge-api.free.beeceptor.com/) to perform all the requests(Please note that the free mock API has a daily limit of 50 requests.); there you will also be able to see the API documentations.
 
 The application should consists of three screens:
 
 1. Store details & products screen:
    - Fetch the store detail from `/storeInfo` endpoint and display them in the upper part of the screen.
-   - Fetch the list of products from `/products` endpoint and display them in a list below store detail section.
+   - Fetch the list of products from `/products` endpoint and display them in a scrollable list with pagination below store detail section.
    - Add an ability for the user to select product(s). 
      - *Skills Challenge*: It is your choice on how you'd like to build this feature and the skills you'd like to demonstrate to us. 
        You could allow:
-       - Multiple quantity (e.g. + and - button on each product)
-       - Multiple product selections (e.g. checkboxes)
-       - Support only one product selection
+       - Multiple quantity (e.g. + and - button on each product) and mutiple products selection
+       - Multiple products selection (e.g. checkboxes), but only a single quantity for each product
+       - Only one product selection
    - Add a button at the bottom most of the screen to bring the user to the order summary screen.
 2. Order summary screen:
    - Display the product(s) selected.
@@ -42,6 +42,7 @@ The application should consists of three screens:
 * Code is loosely coupled and uses an architecture simliar to MVVM, CLEAN, VIPER, MVP, etc.
 * Handles HTTP status codes properly.
 * Follow recommended UI/UX principles.
+* Manual pagination is required.
 * Unit tests.
 * (Bonus) UI tests.
 
@@ -53,3 +54,4 @@ Your assignment could be rejected if
 * There is no unit tests with decent code coverage or the tests are failing.
 * Unreasonable amount of external libraries being used.
 * Code are inconsistent, anti-patterns, or shown to be a direct duplication from other sources.
+* Beecepteor mock API has daily limit of 50 requests.
