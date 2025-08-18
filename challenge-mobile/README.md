@@ -55,3 +55,70 @@ Your assignment could be rejected if
 * Unreasonable amount of external libraries being used.
 * Code are inconsistent, anti-patterns, or shown to be a direct duplication from other sources.
 * Beecepteor mock API has daily limit of 50 requests.
+
+### API Documentation
+
+Base URL: https://mobile-coding-challenge-api.free.beeceptor.com
+
+#### 1. Get Store Info
+**GET** `/storeInfo`
+
+##### Example Response
+```json
+{
+  "name": "The Coffee Shop",
+  "rating": 4.5,
+  "openingTime": "15:01:01.772Z",
+  "closingTime": "19:45:51.365Z"
+}
+```
+
+#### 2. Get Products
+**GET** `/products`
+
+##### Example Response
+```json
+{
+  "data": {
+    "ProductResult": {
+      "PaginationInfo": {
+        "total_count": 10,
+        "current_page": 1,
+        "total_pages": 2
+      },
+      "Products": [
+        {
+          "id": 1,
+          "name": "Latte",
+          "price": 95,
+          "imageUrl": "https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-Latte-Art-Tulip.jpg"
+        }
+      ]
+    }
+  }
+}
+```
+
+#### 3. Create Order
+**POST** `/order`
+
+##### Example Request
+```json
+{
+  "name": "Latte",
+  "price": 95,
+  "delivery_address": "123 Coffee Street, Manila"
+}
+```
+
+##### Example Response
+```json
+{
+  "status": [
+    {
+      "code": "200",
+      "message": "OK"
+    }
+  ]
+}
+```
