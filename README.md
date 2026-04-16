@@ -42,6 +42,8 @@ meeting to talk more about your submission and continue the recruitment process.
 
 ### Challenges
 
+**Timing:** Expected effort **varies by challenge**. The “one to two weeks” average in [Ground Rules](#ground-rules) is across past submissions, not a promise for every exercise (for example, some challenges are designed for a few hours). **Use the timing, scope, and submission instructions in each challenge’s own README** so expectations stay clear.
+
 Pick the one that most suites the position you wish to apply.
 
 **Opn**
