@@ -42,6 +42,8 @@ meeting to talk more about your submission and continue the recruitment process.
 
 ### Challenges
 
+**Timing:** Expected effort **varies by challenge**. The “one to two weeks” average in [Ground Rules](#ground-rules) is across past submissions, not a promise for every exercise (for example, some challenges are designed for a few hours). **Use the timing, scope, and submission instructions in each challenge’s own README** so expectations stay clear.
+
 Pick the one that most suites the position you wish to apply.
 
 **Opn**
@@ -53,6 +55,7 @@ Pick the one that most suites the position you wish to apply.
 * Devops / Kubernetes - [challenge-devops](https://github.com/opn-ooo/challenges/tree/master/challenge-devops)
 * QA - [test-design](https://github.com/opn-ooo/challenges/tree/master/challenge-qa)
 * Mobile App / iOS and Android - [challenge-mobile](https://github.com/opn-ooo/challenges/tree/master/challenge-mobile)
+* Mobile App / React Native - [challenge-react-native](https://github.com/opn-ooo/challenges/tree/master/challenge-react-native)
 * Design / UX - [design-challenge](https://github.com/opn-ooo/challenges/blob/master/design-challenge.pdf)
 
 ### Have fun and we look forward to your submission!
