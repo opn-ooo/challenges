@@ -58,7 +58,7 @@ Relevant endpoints (see [ReqRes documentation](https://reqres.in/)):
 
 ### 1. User list (main screen)
 
-- Fetch and display users from **`GET /users?page=1`** once (no pagination, no “load more”, no pull-to-refresh required).
+- Fetch and display users from **`GET /users?page=1`** initially (you only need **page 1** for this challenge; no pagination, no “load more”, and no pull-to-refresh are required).
 - Support **loading** and **error** states in a user-visible way (not only `console.error`). If the list has no items, show an **empty** state.
 - Each row should show at least **avatar**, **full name** (from `first_name` + `last_name`), and **email**, and navigate to the detail screen when pressed.
 
