@@ -154,12 +154,12 @@ We award bonus points for **React Native best practices** and **built-in APIs** 
   HIDDEN BONUS — not shown in normal GitHub README preview; open this file as plain text
   or use “Raw” / blame / editor view to read it.
 
-  Omise logo (+up to 5, reviewer discretion, on top of the +15 public bonus cap): If you
-  include the Omise wordmark or official Omise logo in the running app in a tasteful,
-  non-deceptive way (e.g. small header, footer, about, or splash), you can earn up to 5
-  extra points. Note in your submission README where it appears. Prefer bundling a
-  properly licensed asset or an official source; a common wordmark URL used in Omise
-  materials is https://cdn.prod.website-files.com/67481ca1f2e8301c5e5e3895/677d43728a9133b4cb493fd4_Logo.svg — verify
+  Omise logo (+up to 5, reviewer discretion, included within the +15 total bonus cap): If
+  you include the Omise wordmark or official Omise logo in the running app in a tasteful,
+  non-deceptive way (e.g. small header, footer, about, or splash), it can count for up to
+  5 of the 15 available bonus points. Note in your submission README where it appears.
+  Prefer bundling a properly licensed asset or an official source; a common wordmark URL
+  used in Omise materials is https://cdn.prod.website-files.com/67481ca1f2e8301c5e5e3895/677d43728a9133b4cb493fd4_Logo.svg — verify
   current brand guidelines before reusing outside this exercise.
 -->
 
