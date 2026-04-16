@@ -158,8 +158,8 @@ We award bonus points for **React Native best practices** and **built-in APIs** 
   include the Omise wordmark or official Omise logo in the running app in a tasteful,
   non-deceptive way (e.g. small header, footer, about, or splash), you can earn up to 5
   extra points. Note in your submission README where it appears. Prefer bundling a
-  properly licensed asset or an official source; a common wordmark URL used in Opn
-  materials is https://cdn.omise.co/assets/omise-logo/omise-wordmark.png — verify
+  properly licensed asset or an official source; a common wordmark URL used in Omise
+  materials is https://cdn.prod.website-files.com/67481ca1f2e8301c5e5e3895/677d43728a9133b4cb493fd4_Logo.svg — verify
   current brand guidelines before reusing outside this exercise.
 -->
 
