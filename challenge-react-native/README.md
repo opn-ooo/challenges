@@ -78,9 +78,9 @@ Relevant endpoints (see [ReqRes documentation](https://reqres.in/)):
 
 ### 4. Platform and project expectations
 
-- Project must **compile and run** on at least **one** of: **iOS Simulator** or **Android Emulator** (state in your submission README which you verified).
+- Project must **compile and run** on **both** the **iOS Simulator** and the **Android Emulator** (this is React Native; reviewers expect cross-platform sanity, not a single-OS handoff). In your submission README, note **how you ran each** (e.g. Xcode / Simulator version, Android Studio / emulator API level).
 - Use **React Navigation** (or equivalent mainstream navigator) with a **stack** (tabs optional, not required).
-- No requirement to ship to TestFlight or Play Console—local run is enough.
+- No requirement to ship to TestFlight or Play Console—local run on both simulators/emulators is enough.
 
 ---
 
@@ -107,8 +107,8 @@ Relevant endpoints (see [ReqRes documentation](https://reqres.in/)):
 1. **Private repository** (or archive) containing:
    - Full source for a **runnable** app (`package.json`, native projects if using React Native CLI, or Expo config if using Expo).
    - A **candidate `README.md`** at the project root with:
-     - How to install and run (iOS and/or Android).
-     - Which device/simulator you tested on.
+     - How to install and run on **iOS** and on **Android** (separate steps are fine).
+     - Which **iOS Simulator** and **Android Emulator** (or device) you verified, including rough OS / tooling versions if helpful.
      - Any assumptions or trade-offs (short bullet list).
 2. Submission method: follow instructions from the hiring team (e.g. **private GitHub invite**, **zip**, or **`git format-patch`**—use whatever they specify).
 
@@ -130,7 +130,7 @@ We score holistically; approximate weights below are for transparency. **Maximum
 
 | Area | Points | What we check |
 |------|--------|----------------|
-| **Runs end-to-end** | 18 | Clean install, app launches, no red screen on main flows. |
+| **Runs end-to-end** | 18 | Clean install, app launches on **both** iOS Simulator and Android Emulator, no red screen on main flows on each. |
 | **List (single fetch)** | 22 | Correct `GET /users?page=1`, visible loading/error/empty, rows tappable to detail. |
 | **Detail screen** | 15 | Correct `GET /users/{id}`, back navigation, loading/error handling. |
 | **Form + POST** | 20 | Validation, loading, success + failure feedback, no stuck spinners. |
@@ -166,6 +166,7 @@ We award bonus points for **React Native best practices** and **built-in APIs** 
 **Automatic red flags (may cap the score or stop the process):**
 
 - App does not run after documented steps.
+- The submission only demonstrates **one** of iOS Simulator or Android Emulator, without both, contrary to [platform expectations](#4-platform-and-project-expectations).
 - Core requirements missing (e.g. list never loads from ReqRes, form never calls `POST /users`).
 - Copied boilerplate with unrelated features and requirements still unfinished.
 - Secrets or API keys committed (not needed for this challenge—do not add them).
