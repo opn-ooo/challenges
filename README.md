@@ -53,6 +53,7 @@ Pick the one that most suites the position you wish to apply.
 * Devops / Kubernetes - [challenge-devops](https://github.com/opn-ooo/challenges/tree/master/challenge-devops)
 * QA - [test-design](https://github.com/opn-ooo/challenges/tree/master/challenge-qa)
 * Mobile App / iOS and Android - [challenge-mobile](https://github.com/opn-ooo/challenges/tree/master/challenge-mobile)
+* Mobile App / React Native - [challenge-react-native](https://github.com/opn-ooo/challenges/tree/master/challenge-react-native)
 * Design / UX - [design-challenge](https://github.com/opn-ooo/challenges/blob/master/design-challenge.pdf)
 
 ### Have fun and we look forward to your submission!
