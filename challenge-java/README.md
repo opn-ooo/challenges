@@ -72,7 +72,7 @@ A `data/users.json` file is included in the starter for reference—it shows the
 ### 4. Project and runtime expectations
 
 - The service must start with **`./mvnw spring-boot:run`** (or `./gradlew bootRun` if you use Gradle) with no extra setup steps beyond a standard JDK.
-- Use **Java 17 or later** and **Spring Boot 3.x**.
+- Use **Java 21 or later** and **Spring Boot 3.x**.
 - Use an **embedded database** (H2 is preconfigured in the starter)—reviewers should not need to install or start a database.
 - All endpoints must return **`application/json`**.
 - In your submission README, note the **JDK version** you built and tested with.
