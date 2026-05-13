@@ -36,7 +36,6 @@ build/
 .DS_Store
 
 ### Solution file — candidates add this themselves ###
-SOLUTION.md
 
 ### Reference implementation — not for distribution ###
 example/
