@@ -1,0 +1,70 @@
+#!/bin/sh
+# ----------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# Apache Maven Wrapper startup script, version 3.2.0
+# ----------------------------------------------------------------------------
+
+# Find the project base dir (the directory containing .mvn/).
+find_maven_basedir() {
+  basedir="$1"
+  wdir="$1"
+  while [ "$wdir" != '/' ]; do
+    if [ -d "$wdir/.mvn" ]; then
+      basedir="$wdir"
+      break
+    fi
+    wdir=$(cd "$wdir/.." && pwd)
+  done
+  echo "$basedir"
+}
+
+BASE_DIR=$(find_maven_basedir "$(cd "$(dirname "$0")" && pwd)")
+export MAVEN_PROJECTBASEDIR="${MAVEN_BASEDIR:-$BASE_DIR}"
+
+# Determine the Java command.
+if [ -n "$JAVA_HOME" ]; then
+  JAVACMD="$JAVA_HOME/bin/java"
+else
+  JAVACMD="java"
+fi
+
+LAUNCHER_JAR="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
+WRAPPER_PROPERTIES="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+
+# Download the wrapper jar if missing.
+if [ ! -f "$LAUNCHER_JAR" ]; then
+  WRAPPER_URL=$(sed -n 's/^wrapperUrl=//p' "$WRAPPER_PROPERTIES")
+  echo "Downloading Maven Wrapper jar from $WRAPPER_URL"
+  if command -v curl > /dev/null 2>&1; then
+    curl -fsSL -o "$LAUNCHER_JAR" "$WRAPPER_URL" || { rm -f "$LAUNCHER_JAR"; exit 1; }
+  elif command -v wget > /dev/null 2>&1; then
+    wget -q -O "$LAUNCHER_JAR" "$WRAPPER_URL" || { rm -f "$LAUNCHER_JAR"; exit 1; }
+  else
+    echo "ERROR: Neither curl nor wget is available. Cannot download Maven Wrapper." >&2
+    exit 1
+  fi
+fi
+
+exec "$JAVACMD" \
+  $MAVEN_OPTS \
+  -classpath "$LAUNCHER_JAR" \
+  "-Dmaven.multiModuleProjectDirectory=$MAVEN_PROJECTBASEDIR" \
+  org.apache.maven.wrapper.MavenWrapperMain "$@"
