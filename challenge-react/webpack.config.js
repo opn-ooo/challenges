@@ -11,12 +11,13 @@ const config = {
   devtool: 'inline-source-map',
 
   devServer: {
-    inline: true,
     host: '0.0.0.0',
     port: 3000,
     historyApiFallback: true,
-    disableHostCheck: true,
-    contentBase: 'public',
+    allowedHosts: 'all',
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
   },
 
   module: {
